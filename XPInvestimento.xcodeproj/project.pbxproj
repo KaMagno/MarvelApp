@@ -29,6 +29,8 @@
 		F7743256208BBAFB00930672 /* CharactersFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743255208BBAFB00930672 /* CharactersFavoriteViewController.swift */; };
 		F7743258208BBB0100930672 /* CharactersFavoriteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7743257208BBB0100930672 /* CharactersFavoriteViewController.storyboard */; };
 		F774325A208BBB2400930672 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7743259208BBB2400930672 /* .gitignore */; };
+		F774325E208BBC6800930672 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774325D208BBC6800930672 /* Logger.swift */; };
+		F7743265208BBCFE00930672 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743264208BBCFE00930672 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		F7743255208BBAFB00930672 /* CharactersFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoriteViewController.swift; sourceTree = "<group>"; };
 		F7743257208BBB0100930672 /* CharactersFavoriteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersFavoriteViewController.storyboard; sourceTree = "<group>"; };
 		F7743259208BBB2400930672 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F774325D208BBC6800930672 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F7743264208BBCFE00930672 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				F7193B9F208B9D16001B4AF1 /* AppDelegate.swift */,
+				F774325C208BBC5B00930672 /* Utils */,
+				F774325B208BBC5400930672 /* Manager */,
 				F774322B208B9D5300930672 /* Modules */,
+				F7743261208BBCCC00930672 /* Entities */,
 				F7193BD0208B9D34001B4AF1 /* Supporting Files */,
 			);
 			path = XPInvestimento;
@@ -306,6 +313,45 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		F774325B208BBC5400930672 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F7743266208BC72900930672 /* Data */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		F774325C208BBC5B00930672 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F774325D208BBC6800930672 /* Logger.swift */,
+				F7743264208BBCFE00930672 /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F7743261208BBCCC00930672 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		F7743266208BC72900930672 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F7743267208BC73200930672 /* Protocols */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		F7743267208BC73200930672 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -450,10 +496,12 @@
 				F7743244208BBA6A00930672 /* CharacterDetailInteractor.swift in Sources */,
 				F7743238208BB9D400930672 /* CharactersPresenter.swift in Sources */,
 				F7743234208BB9BE00930672 /* CharactersRouter.swift in Sources */,
+				F774325E208BBC6800930672 /* Logger.swift in Sources */,
 				F7193BA8208B9D16001B4AF1 /* XPInvestimento.xcdatamodeld in Sources */,
 				F7743236208BB9CC00930672 /* CharactersInteractor.swift in Sources */,
 				F7743250208BBADD00930672 /* CharactersFavoriteRouter.swift in Sources */,
 				F7743242208BBA6200930672 /* CharacterDetailRouter.swift in Sources */,
+				F7743265208BBCFE00930672 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
