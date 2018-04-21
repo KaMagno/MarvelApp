@@ -31,6 +31,8 @@
 		F774325A208BBB2400930672 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7743259208BBB2400930672 /* .gitignore */; };
 		F774325E208BBC6800930672 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774325D208BBC6800930672 /* Logger.swift */; };
 		F7743265208BBCFE00930672 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743264208BBCFE00930672 /* Constants.swift */; };
+		F774326F208BD11100930672 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = F774326E208BD11100930672 /* Cartfile */; };
+		F7743272208BD19100930672 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7743271208BD19100930672 /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		F7743259208BBB2400930672 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F774325D208BBC6800930672 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F7743264208BBCFE00930672 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F774326E208BD11100930672 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		F7743271208BD19100930672 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7743272208BD19100930672 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +120,7 @@
 				F7193BB6208B9D1E001B4AF1 /* XPInvestimentoTests */,
 				F7193BC1208B9D1E001B4AF1 /* XPInvestimentoUITests */,
 				F7193B9D208B9D16001B4AF1 /* Products */,
+				F7743270208BD19100930672 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +173,7 @@
 				F7193BAE208B9D1E001B4AF1 /* Info.plist */,
 				F7193BA6208B9D16001B4AF1 /* XPInvestimento.xcdatamodeld */,
 				F7743259208BBB2400930672 /* .gitignore */,
+				F774326E208BD11100930672 /* Cartfile */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -352,6 +359,14 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		F7743270208BD19100930672 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7743271208BD19100930672 /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,9 +374,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7193BC7208B9D1E001B4AF1 /* Build configuration list for PBXNativeTarget "XPInvestimento" */;
 			buildPhases = (
+				F7193B9A208B9D16001B4AF1 /* Resources */,
 				F7193B98208B9D16001B4AF1 /* Sources */,
 				F7193B99208B9D16001B4AF1 /* Frameworks */,
-				F7193B9A208B9D16001B4AF1 /* Resources */,
+				F7743273208BD1E300930672 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -456,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F774326F208BD11100930672 /* Cartfile in Resources */,
 				F774324A208BBA8500930672 /* CharacterDetailViewController.storyboard in Resources */,
 				F7193BAD208B9D1E001B4AF1 /* LaunchScreen.storyboard in Resources */,
 				F774323C208BB9F100930672 /* CharactersViewController.storyboard in Resources */,
@@ -480,6 +497,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F7743273208BD1E300930672 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7193B98208B9D16001B4AF1 /* Sources */ = {
@@ -668,6 +702,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2B6823827K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = XPInvestimento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -686,6 +724,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2B6823827K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = XPInvestimento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
