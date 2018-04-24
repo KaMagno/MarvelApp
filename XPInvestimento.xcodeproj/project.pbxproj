@@ -22,7 +22,7 @@
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
 		F763B176208F57F300F50F10 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B175208F57F300F50F10 /* NavigationRouter.swift */; };
-		F763B18B208F62BF00F50F10 /* UIImageView+FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B18A208F62BF00F50F10 /* UIImageView+FetchImage.swift */; };
+		F763B18E208F8C1400F50F10 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B18D208F8C1400F50F10 /* ImageManager.swift */; };
 		F7743234208BB9BE00930672 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743233208BB9BE00930672 /* CharactersRouter.swift */; };
 		F7743236208BB9CC00930672 /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743235208BB9CC00930672 /* CharactersInteractor.swift */; };
 		F7743238208BB9D400930672 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743237208BB9D400930672 /* CharactersPresenter.swift */; };
@@ -98,7 +98,7 @@
 		F763B171208F57E200F50F10 /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		F763B173208F57EB00F50F10 /* NavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInteractor.swift; sourceTree = "<group>"; };
 		F763B175208F57F300F50F10 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
-		F763B18A208F62BF00F50F10 /* UIImageView+FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FetchImage.swift"; sourceTree = "<group>"; };
+		F763B18D208F8C1400F50F10 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F7743233208BB9BE00930672 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
 		F7743235208BB9CC00930672 /* CharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
 		F7743237208BB9D400930672 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
@@ -305,6 +305,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		F763B18C208F8C0100F50F10 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F763B18D208F8C1400F50F10 /* ImageManager.swift */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		F774322B208B9D5300930672 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +460,7 @@
 		F774325B208BBC5400930672 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F763B18C208F8C0100F50F10 /* Image */,
 				F74B731E208E7E01002F2140 /* API */,
 				F74B7315208E31F6002F2140 /* CoreData */,
 				F7743266208BC72900930672 /* Data */,
@@ -465,7 +474,6 @@
 				F774325D208BBC6800930672 /* Logger.swift */,
 				F7743264208BBCFE00930672 /* Constants.swift */,
 				F7743289208BDFFF00930672 /* String+MD5.swift */,
-				F763B18A208F62BF00F50F10 /* UIImageView+FetchImage.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -698,8 +706,8 @@
 			files = (
 				F74B7320208E7E15002F2140 /* APIManager.swift in Sources */,
 				F7743248208BBA7D00930672 /* CharacterDetailViewController.swift in Sources */,
+				F763B18E208F8C1400F50F10 /* ImageManager.swift in Sources */,
 				F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */,
-				F763B18B208F62BF00F50F10 /* UIImageView+FetchImage.swift in Sources */,
 				F774323A208BB9E300930672 /* CharactersCollectionViewController.swift in Sources */,
 				F74B7331208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift in Sources */,
 				F7743282208BDA4000930672 /* Image.swift in Sources */,

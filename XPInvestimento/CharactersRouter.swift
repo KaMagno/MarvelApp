@@ -29,6 +29,9 @@ class CharactersRouter:NSObject {
         let interactor = CharactersInteractor()
         //Instancing Presenter
         self.presenter = CharactersPresenter(router: self, interactor: interactor, view: view)
-        
+    }
+    
+    deinit {
+        ImageManager.shared.cleanCache()
     }
 }

@@ -71,8 +71,16 @@ extension CharactersPresenter: UICollectionViewDelegate {
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.interactor.fetchCharacters(offset: indexPath.row)
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "default", for: indexPath) as? CharactersCollectionViewCell else {
+            Logger.logError(in: self, message: "Could not cast cell to  ")
+            return
+        }
+        cell.cleanData()
+        
+        if self.interactor.characters.count-1 == indexPath.row {
+            self.interactor.fetchCharacters(offset: indexPath.row)
+        }
     }
 }
 

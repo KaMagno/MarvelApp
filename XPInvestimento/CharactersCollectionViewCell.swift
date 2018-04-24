@@ -37,13 +37,28 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     func set(characterImageURL:URL) {
-        self.outletCharacterImage.fetchImage(from: characterImageURL)
+        ImageManager.shared.fetchImage(from: characterImageURL) { (image, error) in
+            DispatchQueue.main.async {
+                if let imageVerified = image {
+                    self.outletCharacterImage.image = imageVerified
+                } else {
+                    self.outletCharacterImage.image = #imageLiteral(resourceName: "Nil")
+                }
+            }
+        }
     }
     
     func set(isFavorite:Bool) {
         self.outletFavoriteButton.isSelected = isFavorite
     }
     
+    func cleanData() {
+        DispatchQueue.main.async {
+            self.outletCharacterName.text = "No Name"
+            self.outletCharacterImage.image = nil
+            self.outletFavoriteButton.isSelected = false
+        }
+    }
     
     // MARK: - IBActions
     @IBAction func tapFavorite(_ sender: UIButton) {
