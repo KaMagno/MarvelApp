@@ -8,6 +8,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -100,8 +102,30 @@
                     <navigationItem key="navigationItem" title="Characters" id="hDm-pz-rPj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="outletEmpty" destination="OQm-gK-tT0" id="9EM-S4-gMb"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmP-jk-Qwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="OQm-gK-tT0">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-c7-LD3">
+                            <rect key="frame" x="71" y="52.5" width="98.5" height="24"/>
+                            <fontDescription key="fontDescription" name="Marvel-Bold" family="Marvel" pointSize="20"/>
+                            <color key="textColor" name="NavigationBar - Background"/>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="yvd-c7-LD3" firstAttribute="centerY" secondItem="OQm-gK-tT0" secondAttribute="centerY" id="acy-2U-3v3"/>
+                        <constraint firstItem="yvd-c7-LD3" firstAttribute="centerX" secondItem="OQm-gK-tT0" secondAttribute="centerX" id="i5A-Em-85H"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="uQF-cE-nHY"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="80.799999999999997" y="232.53373313343329"/>
         </scene>
@@ -11042,5 +11066,8 @@ agAJ/3gACf98AAn/gwAJ/4gACf+VAAn/mAAJ/6UACf+qAAn/sgAJ/7UACf+6AAn/wgAJ/8UACf/XAAn/
 2gAJ/98AAAAAAAAEAQAAAAAAAABZAAAAAAAAAAAAAAAAAAn/4Q
 </mutableData>
         </image>
+        <namedColor name="NavigationBar - Background">
+            <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

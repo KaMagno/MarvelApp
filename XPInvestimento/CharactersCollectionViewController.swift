@@ -10,6 +10,8 @@ import UIKit
 
 class CharactersCollectionViewController: UICollectionViewController {
     
+    @IBOutlet var outletEmpty: UIView!
+    
     var presenter: CharactersPresenter!
     
     override func viewDidLoad() {
@@ -38,7 +40,7 @@ class CharactersCollectionViewController: UICollectionViewController {
             return
         }
         let screenWidth = self.view.bounds.width
-        let screenHeight = self.view.bounds.height
+        _ = self.view.bounds.height
         
         let itemSize:CGFloat = 0.4
         
@@ -46,5 +48,13 @@ class CharactersCollectionViewController: UICollectionViewController {
         let itemEdge:CGFloat = (1-(itemSize*2))/3
         flowLayout.itemSize = CGSize(width: screenWidth*itemSize, height: screenWidth*itemSize)
         flowLayout.sectionInset = UIEdgeInsets(top: screenWidth*itemEdge, left: screenWidth*itemEdge, bottom: screenWidth*itemEdge, right: screenWidth*itemEdge)
+    }
+    
+    func set(empty:Bool) {
+        if empty {
+            self.collectionView?.backgroundView = self.outletEmpty
+        }else{
+            self.collectionView?.backgroundView = nil
+        }
     }
 }

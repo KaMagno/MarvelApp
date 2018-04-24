@@ -45,6 +45,7 @@ class CharactersPresenter: NSObject {
 
 extension CharactersPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.view.set(empty: self.interactor.characters.count < 1 )
         return self.interactor.characters.count
     }
     
