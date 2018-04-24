@@ -85,7 +85,7 @@
                         <viewLayoutGuide key="safeArea" id="vwD-Gt-Ihz"/>
                     </view>
                     <connections>
-                        <outlet property="outletAlertView" destination="axD-6g-lV0" id="zLg-Pk-g0w"/>
+                        <outlet property="outletAlertView" destination="DHk-LV-Gav" id="sxA-by-LZe"/>
                         <outlet property="outletConfirmButton" destination="nGg-gK-iHO" id="iON-b4-51G"/>
                         <outlet property="outletMessageLabel" destination="59Z-Bp-mqa" id="IOr-L1-FWT"/>
                     </connections>

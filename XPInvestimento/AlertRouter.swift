@@ -33,6 +33,12 @@ class AlertRouter: NSObject {
         self.presenter = AlertPresenter(router: self, interactor: interactor, view: view)
         
     }
+    
+    // MARK: - Functions
+    func dismiss(){
+        self.presenter.view.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Static Functions
     static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController) {
         let router = AlertRouter(message: message, buttonTitle: buttonTitle)

@@ -36,9 +36,9 @@ class AlertPresenter: NSObject {
     }
     
     func didTapCancel() {
-        
+        self.router.dismiss()
     }
     func didTapConfirm() {
-        
+        self.router.dismiss()
     }
 }

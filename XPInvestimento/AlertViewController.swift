@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO: Create Animation to Alert
 class AlertViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -24,6 +25,8 @@ class AlertViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
+        self.setupGesture()
         self.presenter.viewDidLoad()
     }
 
@@ -34,12 +37,16 @@ class AlertViewController: UIViewController {
     // MARK: - Functions
     // MARK: Private
     private func setupView() {
+        self.outletAlertView.clipsToBounds = true
         self.outletAlertView.layer.borderColor = UIColor.black.cgColor
         self.outletAlertView.layer.borderWidth = 2.0
-        
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(AlertViewController.handlerTapGesture(_:)))
+        self.outletAlertView.layer.cornerRadius = 10.0
+    }
+    
+    private func setupGesture() {let tap = UITapGestureRecognizer.init(target: self, action: #selector(AlertViewController.handlerTapGesture(_:)))
         self.view.addGestureRecognizer(tap)
     }
+    
     // MARK: Public
     func set(message:String) {
         self.outletMessageLabel.text = message
