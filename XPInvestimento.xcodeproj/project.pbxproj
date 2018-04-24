@@ -22,6 +22,11 @@
 		F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A2208D4D080052CBE2 /* Marvel-BoldItalic.ttf */; };
 		F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A4208D4D080052CBE2 /* Marvel-Italic.ttf */; };
 		F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A5208D4D080052CBE2 /* Marvel-Regular.ttf */; };
+		F75BDFB9208FECD100F302FE /* AlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFB8208FECD100F302FE /* AlertRouter.swift */; };
+		F75BDFBB208FECD900F302FE /* AlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBA208FECD900F302FE /* AlertInteractor.swift */; };
+		F75BDFBD208FECE000F302FE /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBC208FECE000F302FE /* AlertPresenter.swift */; };
+		F75BDFBF208FECEA00F302FE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBE208FECEA00F302FE /* AlertViewController.swift */; };
+		F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */; };
 		F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B16F208F56B800F50F10 /* NavigationViewController.swift */; };
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
@@ -98,6 +103,11 @@
 		F74B7326208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterFavorited+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F74B732E208EA19C002F2140 /* CharacterImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F74B732F208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F75BDFB8208FECD100F302FE /* AlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRouter.swift; sourceTree = "<group>"; };
+		F75BDFBA208FECD900F302FE /* AlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInteractor.swift; sourceTree = "<group>"; };
+		F75BDFBC208FECE000F302FE /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		F75BDFBE208FECEA00F302FE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		F763B16F208F56B800F50F10 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		F763B171208F57E200F50F10 /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		F763B173208F57EB00F50F10 /* NavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInteractor.swift; sourceTree = "<group>"; };
@@ -266,6 +276,50 @@
 			name = "CoreData Entities";
 			sourceTree = "<group>";
 		};
+		F75BDFB3208FECA400F302FE /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F75BDFB7208FECBB00F302FE /* View */,
+				F75BDFB6208FECB800F302FE /* Presenter */,
+				F75BDFB5208FECB200F302FE /* Interactor */,
+				F75BDFB4208FECAE00F302FE /* Router */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
+		F75BDFB4208FECAE00F302FE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F75BDFB8208FECD100F302FE /* AlertRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		F75BDFB5208FECB200F302FE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F75BDFBA208FECD900F302FE /* AlertInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		F75BDFB6208FECB800F302FE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F75BDFBC208FECE000F302FE /* AlertPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		F75BDFB7208FECBB00F302FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */,
+				F75BDFBE208FECEA00F302FE /* AlertViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		F763B168208F564D00F50F10 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +378,7 @@
 				F774322E208BB98200930672 /* Characters */,
 				F774322D208BB97800930672 /* CharacterDetail */,
 				F774322C208B9D5D00930672 /* Favorites */,
+				F75BDFB3208FECA400F302FE /* Alert */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -668,6 +723,7 @@
 				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
+				F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */,
 				F774325A208BBB2400930672 /* .gitignore in Resources */,
 				F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */,
 				F7743258208BBB0100930672 /* CharactersFavoriteViewController.storyboard in Resources */,
@@ -719,8 +775,10 @@
 				F774323A208BB9E300930672 /* CharactersCollectionViewController.swift in Sources */,
 				F74B7331208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift in Sources */,
 				F7743282208BDA4000930672 /* Image.swift in Sources */,
+				F75BDFBF208FECEA00F302FE /* AlertViewController.swift in Sources */,
 				F7743280208BD92C00930672 /* GetCharacters.swift in Sources */,
 				F7743246208BBA7100930672 /* CharacterDetailPresenter.swift in Sources */,
+				F75BDFBB208FECD900F302FE /* AlertInteractor.swift in Sources */,
 				F7743256208BBAFB00930672 /* CharactersFavoriteViewController.swift in Sources */,
 				F7743254208BBAEC00930672 /* CharactersFavoritePresenter.swift in Sources */,
 				F7743252208BBAE300930672 /* CharactersFavoriteInteractor.swift in Sources */,
@@ -728,6 +786,7 @@
 				F7193BA0208B9D16001B4AF1 /* AppDelegate.swift in Sources */,
 				F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */,
 				F74B7330208EA19C002F2140 /* CharacterImage+CoreDataClass.swift in Sources */,
+				F75BDFBD208FECE000F302FE /* AlertPresenter.swift in Sources */,
 				F7743288208BDF0C00930672 /* HTTPParameter.swift in Sources */,
 				F74B7328208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift in Sources */,
 				F7743244208BBA6A00930672 /* CharacterDetailInteractor.swift in Sources */,
@@ -750,6 +809,7 @@
 				F7743242208BBA6200930672 /* CharacterDetailRouter.swift in Sources */,
 				F774327B208BD5A000930672 /* APIRequest.swift in Sources */,
 				F774328C208BE0DB00930672 /* URLQueryEncoder.swift in Sources */,
+				F75BDFB9208FECD100F302FE /* AlertRouter.swift in Sources */,
 				F7EB41A0208D49E50052CBE2 /* CharactersCollectionViewCell.swift in Sources */,
 				F7743265208BBCFE00930672 /* Constants.swift in Sources */,
 			);
