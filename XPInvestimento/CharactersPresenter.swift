@@ -78,10 +78,12 @@ extension CharactersPresenter: UICollectionViewDelegate {
         }
         cell.cleanData()
         
-        if self.interactor.characters.count-1 == indexPath.row {
+        if self.interactor.characters.count-10 == indexPath.row {
             self.interactor.fetchCharacters(offset: indexPath.row)
         }
     }
+    
+    
 }
 
 extension CharactersPresenter:CharactersCollectionViewCellDelegate {

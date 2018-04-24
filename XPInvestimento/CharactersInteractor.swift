@@ -18,7 +18,7 @@ class CharactersInteractor: NSObject {
 
     // MARK: - Properties
     // MARK: Private
-    private var offset:Int = 20
+    private var offset:Int = 0
     // MARK: Public
     private(set) var characters = [Character]()
     weak var delegate:CharactersInteractorDelegate?
@@ -34,7 +34,7 @@ class CharactersInteractor: NSObject {
     // MARK: Public
     func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
         if let offsetVerified = offset {
-            self.offset = offsetVerified > self.offset ? self.offset+offsetVerified : self.offset
+            self.offset = offsetVerified > self.offset ? self.offset+Constants.MarvelAPI.offset : self.offset
         }
         DataManager.shared.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset)
     }

@@ -18,6 +18,10 @@
 		F74B7328208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B7326208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift */; };
 		F74B7330208EA19C002F2140 /* CharacterImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B732E208EA19C002F2140 /* CharacterImage+CoreDataClass.swift */; };
 		F74B7331208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74B732F208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift */; };
+		F75BDFAC208FD84000F302FE /* Marvel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A3208D4D080052CBE2 /* Marvel-Bold.ttf */; };
+		F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A2208D4D080052CBE2 /* Marvel-BoldItalic.ttf */; };
+		F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A4208D4D080052CBE2 /* Marvel-Italic.ttf */; };
+		F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7EB41A5208D4D080052CBE2 /* Marvel-Regular.ttf */; };
 		F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B16F208F56B800F50F10 /* NavigationViewController.swift */; };
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
@@ -656,12 +660,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75BDFAC208FD84000F302FE /* Marvel-Bold.ttf in Resources */,
 				F774326F208BD11100930672 /* Cartfile in Resources */,
 				F774324A208BBA8500930672 /* CharacterDetailViewController.storyboard in Resources */,
 				F7193BAD208B9D1E001B4AF1 /* LaunchScreen.storyboard in Resources */,
+				F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */,
+				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
 				F774325A208BBB2400930672 /* .gitignore in Resources */,
+				F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */,
 				F7743258208BBB0100930672 /* CharactersFavoriteViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

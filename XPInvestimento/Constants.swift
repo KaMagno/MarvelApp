@@ -20,6 +20,8 @@ final class Constants {
             
             return string.md5
         }
+        
+        static let offset = 20
     }
     
 }
