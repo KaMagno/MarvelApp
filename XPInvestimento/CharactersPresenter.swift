@@ -37,6 +37,10 @@ class CharactersPresenter: NSObject {
         
         self.interactor.fetchCharacters()
     }
+    
+    @objc func reload() {
+        self.interactor.fetchCharacters()
+    }
 }
 
 extension CharactersPresenter: UICollectionViewDataSource {
@@ -83,6 +87,7 @@ extension CharactersPresenter: CharactersInteractorDelegate {
     func didLoad(characters: [Character]) {
         DispatchQueue.main.async {
             self.view.collectionView?.reloadData()
+            self.view.collectionView?.refreshControl?.endRefreshing()
         }
     }
     func didFail(error: Error) {
