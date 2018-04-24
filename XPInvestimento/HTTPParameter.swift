@@ -25,7 +25,7 @@ enum HTTPParameter: CustomStringConvertible, Decodable {
         } else if let double = try? container.decode(Double.self) {
             self = .double(double)
         } else {
-            throw APIError.decoding
+            throw APIManager.APIError.decoding
         }
     }
     

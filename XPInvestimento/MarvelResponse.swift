@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MarvelResponse<Response: Decodable>: Decodable {
+public struct MarvelResponse<Response: Decodable>: Decodable {
     let status: String?
     let message: String?
     let data: DataContainer<Response>?

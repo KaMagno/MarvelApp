@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Image: Decodable {
+public struct Image:Decodable {
     private enum Keys: String, CodingKey {
         case path = "path"
         case fileExtension = "extension"
@@ -16,13 +16,20 @@ struct Image: Decodable {
     
     let url: URL
     
-    init(from decoder: Decoder) throws {
+    init?(url:URL?) {
+        guard let urlVerified = url else {
+            return nil
+        }
+        self.url = urlVerified
+    }
+    
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
         let path = try container.decode(String.self, forKey: .path)
         let fileExtension = try container.decode(String.self, forKey: .fileExtension)
         
-        guard let url = URL(string: "\(path).\(fileExtension)") else { throw APIError.decoding }
+        guard let url = URL(string: "\(path).\(fileExtension)") else { throw APIManager.APIError.decoding }
         
         self.url = url
     }

@@ -8,18 +8,20 @@
 
 import UIKit
 
-protocol DataManagerDelegate {
-    func didLoad(characters:[Character])
+protocol DataManagerDelegate:class {
+    func didLoad(characters: [Character])
+    func didFail(error: Error)
 }
 
 class DataManager {
     
-    // MARK: - Variables
+    // MARK: - Properties
     // MARK: Private
     private let session = URLSession(configuration: .default)
     
     // MARK: Public
     static let shared:DataManager = DataManager()
+    weak var delegate:DataManagerDelegate?
     
     // MARK: - Init
     private init(){
@@ -28,42 +30,66 @@ class DataManager {
     
     // MARK: - Functions
     // MARK: Private
-    private func endpoint<T: APIRequest>(for request: T) -> URL {
-        guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
-        let hash = Constants.MarvelAPI.hash
-        let url = URL(
-            string: "\(Constants.MarvelAPI.baseEndpoint)\(request.endpoint)?ts=\(Constants.MarvelAPI.ts)&hash=\(hash)&apikey=\(Constants.MarvelAPI.publicKey)&\(parameters)")!
-        return url
+    // MARK: Public
+    func getCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
+        guard let delegateVerified = self.delegate else {
+            Logger.logError(in: self, message: "Delegate is nil")
+            return
+        }
+        
+        
+        
+        //Get characters from API
+        let request = GetCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: offset)
+        APIManager.shared.send(request, completion: { (response) in
+            
+            //Response from API
+            switch response {
+            case .success(let dataContainer):
+                //Verify if any Character is saved
+                let characters = dataContainer.results.map({ (characterElement) -> Character in
+                    let coreDataManager = CoreDataManager<CharacterFavorited>()
+                    
+                    var character = characterElement
+                    let predicate = NSPredicate(format: "id = %i", character.id)
+                    character.isFavorited = coreDataManager.exist(predicate: predicate)
+
+                    return character
+                })
+                //
+                delegateVerified.didLoad(characters: characters)
+                
+            case .failure(let error):
+                //
+                delegateVerified.didFail(error: error)
+            }
+        })
     }
     
-    // MARK: Public
-    func send<T>(_ request: T, completion: @escaping (Result<DataContainer<T.Response>>) -> Void) where T : APIRequest {
-        let endpoint = self.endpoint(for: request)
-        print("Endpoint: \(endpoint)")
-        
-        let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
-            if let data = data {
-                do {
-                    // Decode the top level response, and look up the decoded response to see
-                    // if it's a success or a failure
-                    let marvelResponse = try JSONDecoder().decode(MarvelResponse<T.Response>.self, from: data)
-                    
-                    if let dataContainer = marvelResponse.data {
-                        completion(Result.success(dataContainer))
-                    } else if let message = marvelResponse.message {
-                        completion(.failure(APIError.server(message: message)))
-                    } else {
-                        completion(.failure(APIError.decoding))
-                    }
-                } catch {
-                    completion(.failure(error))
-                }
-            } else if let error = error {
-                completion(.failure(error))
-            }
+    func getFavoriteCharacters() {
+        guard let delegateVerified = self.delegate else {
+            Logger.logError(in: self, message: "Delegate is nil")
+            return
         }
-        task.resume()
+        
+        do {
+            let coreDataManager = CoreDataManager<CharacterFavorited>()
+            let charactersFavorited = try coreDataManager.get(filter: nil)
+            let characters = charactersFavorited.map { (characterFavorited) -> Character in
+                return Character(characterFavorited: characterFavorited)
+            }
+            delegateVerified.didLoad(characters: characters)
+        } catch {
+            Logger.logError(in: self, message: error.localizedDescription)
+            delegateVerified.didFail(error: error)
+        }
     }
+    
+    
+    func set(character:Character, isFavorite:Bool) {
+        //
+    }
+    
     
     
 }

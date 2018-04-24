@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension DataManager {
+extension APIManager {
     enum APIError: Error {
         case encoding
         case decoding

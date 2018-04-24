@@ -30,23 +30,23 @@ class APITest: XCTestCase {
         let request = GetCharacters()
         
         let waiter = XCTWaiter(delegate: self)
-        let testException = XCTestExpectation(description: "ABC")
+        let answerAPIExpectation = XCTestExpectation(description: "AnswerAPI")
         
         DataManager.shared.send(request) { (response) in
             switch response {
             case .success(let dataContainer):
                 XCTAssertNotNil(dataContainer.results)
                 XCTAssertNotNil(dataContainer.results.count > 0)
-                testException.fulfill()
+                answerAPIExpectation.fulfill()
             
             case .failure(let error):
                 XCTFail(error.localizedDescription)
-                testException.fulfill()
+                answerAPIExpectation.fulfill()
                 print(error.localizedDescription)
             }
         }
         
-        waiter.wait(for: [testException], timeout: 20.0, enforceOrder: true)
+        waiter.wait(for: [answerAPIExpectation], timeout: 20.0, enforceOrder: true)
     }
     
     func testPerformanceExample() {

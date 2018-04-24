@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct DataContainer<Results: Decodable>: Decodable {
+public struct DataContainer<Results: Decodable>: Decodable {
     let offset: Int
     let limit: Int
     let total: Int
