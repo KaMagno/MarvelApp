@@ -14,7 +14,6 @@ class APITest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.continueAfterFailure = true
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -32,7 +31,7 @@ class APITest: XCTestCase {
         let waiter = XCTWaiter(delegate: self)
         let answerAPIExpectation = XCTestExpectation(description: "AnswerAPI")
         
-        DataManager.shared.send(request) { (response) in
+        APIManager.shared.send(request) { (response) in
             switch response {
             case .success(let dataContainer):
                 XCTAssertNotNil(dataContainer.results)
