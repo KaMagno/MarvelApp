@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CharactersInteractorDelegate:class {
+    func isLoading(_ loading:Bool)
     func didLoad(characters:[Character])
     func didFail(error: Error)
 }
@@ -17,6 +18,7 @@ class CharactersInteractor: NSObject {
 
     // MARK: - Properties
     // MARK: Private
+    private var offset:Int = 20
     // MARK: Public
     private(set) var characters = [Character]()
     weak var delegate:CharactersInteractorDelegate?
@@ -30,13 +32,11 @@ class CharactersInteractor: NSObject {
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
-    func fetchCharacters() {
-        DataManager.shared.getCharacters()
-    }
-    
-    func isFavorited(_ character:Character) -> Bool {
-        
-        return false
+    func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
+        if let offsetVerified = offset {
+            self.offset = offsetVerified > self.offset ? self.offset+offsetVerified : self.offset
+        }
+        DataManager.shared.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset)
     }
     
     func setFavoriteStatus(for character:Character) {
@@ -46,7 +46,7 @@ class CharactersInteractor: NSObject {
 
 extension CharactersInteractor:DataManagerDelegate {
     func didLoad(characters: [Character]) {
-        self.characters = characters
+        self.characters.append(contentsOf: characters)
         self.delegate?.didLoad(characters: characters)
     }
     func didFail(error: Error) {

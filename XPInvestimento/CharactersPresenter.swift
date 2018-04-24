@@ -63,11 +63,16 @@ extension CharactersPresenter: UICollectionViewDataSource {
         
         return cell
     }
+    
 }
 
 extension CharactersPresenter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.interactor.fetchCharacters(offset: indexPath.row)
     }
 }
 
@@ -84,6 +89,9 @@ extension CharactersPresenter:CharactersCollectionViewCellDelegate {
 }
 
 extension CharactersPresenter: CharactersInteractorDelegate {
+    func isLoading(_ loading:Bool) {
+        
+    }
     func didLoad(characters: [Character]) {
         DispatchQueue.main.async {
             self.view.collectionView?.reloadData()
