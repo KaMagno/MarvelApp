@@ -27,7 +27,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Hb-IA-jnr">
                             <size key="itemSize" width="140" height="140"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -65,7 +65,7 @@
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="default" id="tnr-Zn-xNc" customClass="CharactersCollectionViewCell" customModule="XPInvestimento" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                <rect key="frame" x="0.0" y="50" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
@@ -150,6 +150,29 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CharactersCollectionReusableView" id="a5B-Ci-T1N" customClass="CharactersCollectionReusableView" customModule="XPInvestimento" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" barStyle="black" placeholder="Character Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLq-Fn-EDS">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="aLq-Fn-EDS" firstAttribute="leading" secondItem="a5B-Ci-T1N" secondAttribute="leading" id="Fir-ub-yGQ"/>
+                                <constraint firstItem="aLq-Fn-EDS" firstAttribute="top" secondItem="a5B-Ci-T1N" secondAttribute="top" id="JAb-hA-Jnj"/>
+                                <constraint firstAttribute="trailing" secondItem="aLq-Fn-EDS" secondAttribute="trailing" id="plz-Sb-ios"/>
+                                <constraint firstAttribute="bottom" secondItem="aLq-Fn-EDS" secondAttribute="bottom" id="yLg-Uh-vZU"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="outletSearchBar" destination="aLq-Fn-EDS" id="9fZ-9t-WHg"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="bKS-3E-i6P" id="YCQ-ip-xXp"/>
                             <outlet property="delegate" destination="bKS-3E-i6P" id="dr6-9Q-nF0"/>

@@ -15,6 +15,12 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     var presenter: CharactersPresenter!
     
+    // MARK: - UICollectionViewController
+    // MARK: Properties
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

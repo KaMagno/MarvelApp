@@ -28,6 +28,7 @@
 		F75BDFBF208FECEA00F302FE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBE208FECEA00F302FE /* AlertViewController.swift */; };
 		F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */; };
 		F75BDFC52090A93900F302FE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC42090A93900F302FE /* .gitignore */; };
+		F75BDFC82090AF5600F302FE /* ChactersCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFC72090AF5600F302FE /* ChactersCollectionReusableView.swift */; };
 		F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B16F208F56B800F50F10 /* NavigationViewController.swift */; };
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
@@ -109,6 +110,7 @@
 		F75BDFBE208FECEA00F302FE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		F75BDFC42090A93900F302FE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		F75BDFC72090AF5600F302FE /* ChactersCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChactersCollectionReusableView.swift; sourceTree = "<group>"; };
 		F763B16F208F56B800F50F10 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		F763B171208F57E200F50F10 /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		F763B173208F57EB00F50F10 /* NavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInteractor.swift; sourceTree = "<group>"; };
@@ -320,6 +322,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		F75BDFC62090AF3500F302FE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */,
+				F75BDFC72090AF5600F302FE /* ChactersCollectionReusableView.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		F763B168208F564D00F50F10 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,8 +454,8 @@
 		F7743232208BB9A000930672 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F75BDFC62090AF3500F302FE /* Cell */,
 				F774323B208BB9F100930672 /* CharactersCollectionViewController.storyboard */,
-				F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */,
 				F7743239208BB9E300930672 /* CharactersCollectionViewController.swift */,
 			);
 			name = View;
@@ -789,6 +800,7 @@
 				F75BDFBD208FECE000F302FE /* AlertPresenter.swift in Sources */,
 				F7743288208BDF0C00930672 /* HTTPParameter.swift in Sources */,
 				F74B7328208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift in Sources */,
+				F75BDFC82090AF5600F302FE /* ChactersCollectionReusableView.swift in Sources */,
 				F7743244208BBA6A00930672 /* CharacterDetailInteractor.swift in Sources */,
 				F774328F208BE14700930672 /* APIError.swift in Sources */,
 				F774328A208BDFFF00930672 /* String+MD5.swift in Sources */,

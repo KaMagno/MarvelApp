@@ -65,6 +65,22 @@ extension CharactersPresenter: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionElementKindSectionHeader) {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CharactersCollectionReusableView", for: indexPath) as? CharactersCollectionReusableView else {
+                Logger.logError(in: self, message: "Could not cast UICollectionReusableView to ChactersCollectionReusableView")
+                return UICollectionReusableView()
+            }
+            
+            headerView.outletSearchBar.delegate = self
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+        
+    }
 }
 
 extension CharactersPresenter: UICollectionViewDelegate {
@@ -87,7 +103,7 @@ extension CharactersPresenter: UICollectionViewDelegate {
     
 }
 
-extension CharactersPresenter:CharactersCollectionViewCellDelegate {
+extension CharactersPresenter: CharactersCollectionViewCellDelegate {
     func didTapFavorite(in frame: CGRect) {
         guard let indexPath = self.view.collectionView?.indexPathForItem(at: frame.origin) else {
             Logger.logError(in: self, message: "Could not get the IndexPath of cell ny frame")
@@ -111,5 +127,20 @@ extension CharactersPresenter: CharactersInteractorDelegate {
     }
     func didFail(error: Error) {
         //TODO: Error Screen View
+    }
+}
+
+extension CharactersPresenter: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text != nil {
+            searchBar.text = ""
+            self.interactor.cleanCharacters()
+            self.interactor.fetchCharacters()
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            self.interactor.fetchCharacters(nameStartsWith: text)
+        }
     }
 }

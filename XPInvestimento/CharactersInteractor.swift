@@ -32,9 +32,17 @@ class CharactersInteractor: NSObject {
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
+    func cleanCharacters() {
+        self.characters = [Character]()
+    }
+    
     func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
         if let offsetVerified = offset {
             self.offset = offsetVerified > self.offset ? self.offset+Constants.MarvelAPI.offset : self.offset
+        }
+        if nameStartsWith != nil {
+            self.offset = 0
+            self.cleanCharacters()
         }
         DataManager.shared.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset)
     }
