@@ -64,3 +64,9 @@ public struct Character: Decodable {
         self.isFavorited = false
     }
 }
+
+extension Character:Equatable {
+    public static func == (lhs: Character, rhs: Character) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.description == rhs.description && lhs.thumbnail?.url == rhs.thumbnail?.url
+    }
+}
