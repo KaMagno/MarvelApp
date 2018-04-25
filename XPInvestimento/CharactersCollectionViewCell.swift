@@ -25,12 +25,17 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Init
     override func awakeFromNib() {
-        self.contentView.layer.borderColor = UIColor.gray.cgColor
-        self.contentView.layer.borderWidth = 1.0
-        self.contentView.layer.cornerRadius = 10.0
+        self.setupViews()
     }
     
     // MARK: - Functions
+    // MARK: Private
+    func setupViews() {
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 1.0
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
+    }
     // MARK: Public
     func set(characterName:String) {
         self.outletCharacterName.text = characterName

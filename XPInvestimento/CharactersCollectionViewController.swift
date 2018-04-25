@@ -10,7 +10,8 @@ import UIKit
 
 class CharactersCollectionViewController: UICollectionViewController {
     
-    @IBOutlet var outletEmpty: UIView!
+    @IBOutlet var outletEmptyBackgroundView: UIView!
+    @IBOutlet var outletDefaultBackgroundView: UIView!
     
     var presenter: CharactersPresenter!
     
@@ -52,9 +53,9 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     func set(empty:Bool) {
         if empty {
-            self.collectionView?.backgroundView = self.outletEmpty
+            self.collectionView?.backgroundView = self.outletEmptyBackgroundView
         }else{
-            self.collectionView?.backgroundView = nil
+            self.collectionView?.backgroundView = self.outletDefaultBackgroundView
         }
     }
 }
