@@ -27,6 +27,7 @@
 		F75BDFBD208FECE000F302FE /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBC208FECE000F302FE /* AlertPresenter.swift */; };
 		F75BDFBF208FECEA00F302FE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFBE208FECEA00F302FE /* AlertViewController.swift */; };
 		F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */; };
+		F75BDFC52090A93900F302FE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC42090A93900F302FE /* .gitignore */; };
 		F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B16F208F56B800F50F10 /* NavigationViewController.swift */; };
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
@@ -47,7 +48,6 @@
 		F7743254208BBAEC00930672 /* CharactersFavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743253208BBAEC00930672 /* CharactersFavoritePresenter.swift */; };
 		F7743256208BBAFB00930672 /* CharactersFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743255208BBAFB00930672 /* CharactersFavoriteViewController.swift */; };
 		F7743258208BBB0100930672 /* CharactersFavoriteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7743257208BBB0100930672 /* CharactersFavoriteViewController.storyboard */; };
-		F774325A208BBB2400930672 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7743259208BBB2400930672 /* .gitignore */; };
 		F774325E208BBC6800930672 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774325D208BBC6800930672 /* Logger.swift */; };
 		F7743265208BBCFE00930672 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743264208BBCFE00930672 /* Constants.swift */; };
 		F774326F208BD11100930672 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = F774326E208BD11100930672 /* Cartfile */; };
@@ -108,6 +108,7 @@
 		F75BDFBC208FECE000F302FE /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		F75BDFBE208FECEA00F302FE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
+		F75BDFC42090A93900F302FE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		F763B16F208F56B800F50F10 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		F763B171208F57E200F50F10 /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		F763B173208F57EB00F50F10 /* NavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInteractor.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		F7743253208BBAEC00930672 /* CharactersFavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritePresenter.swift; sourceTree = "<group>"; };
 		F7743255208BBAFB00930672 /* CharactersFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoriteViewController.swift; sourceTree = "<group>"; };
 		F7743257208BBB0100930672 /* CharactersFavoriteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersFavoriteViewController.storyboard; sourceTree = "<group>"; };
-		F7743259208BBB2400930672 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F774325D208BBC6800930672 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F7743264208BBCFE00930672 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F774326E208BD11100930672 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
@@ -239,7 +239,7 @@
 				F7193BAB208B9D1E001B4AF1 /* LaunchScreen.storyboard */,
 				F7193BAE208B9D1E001B4AF1 /* Info.plist */,
 				F7193BA6208B9D16001B4AF1 /* XPInvestimento.xcdatamodeld */,
-				F7743259208BBB2400930672 /* .gitignore */,
+				F75BDFC42090A93900F302FE /* .gitignore */,
 				F774326E208BD11100930672 /* Cartfile */,
 			);
 			name = "Supporting Files";
@@ -719,12 +719,12 @@
 				F774326F208BD11100930672 /* Cartfile in Resources */,
 				F774324A208BBA8500930672 /* CharacterDetailViewController.storyboard in Resources */,
 				F7193BAD208B9D1E001B4AF1 /* LaunchScreen.storyboard in Resources */,
+				F75BDFC52090A93900F302FE /* .gitignore in Resources */,
 				F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */,
 				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
 				F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */,
-				F774325A208BBB2400930672 /* .gitignore in Resources */,
 				F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */,
 				F7743258208BBB0100930672 /* CharactersFavoriteViewController.storyboard in Resources */,
 			);
