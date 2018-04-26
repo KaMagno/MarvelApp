@@ -399,6 +399,7 @@
 		F774322B208B9D5300930672 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F7FC00B1209282C4009ABDD1 /* TabBar */,
 				F763B168208F564D00F50F10 /* NavigationController */,
 				F774322E208BB98200930672 /* Characters */,
 				F7FC006C20922EBF009ABDD1 /* CharactersFavorited */,
@@ -688,6 +689,13 @@
 				F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		F7FC00B1209282C4009ABDD1 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -59,7 +59,7 @@ class CharactersFavoritedInteractor: NSObject {
     }
     
     func remove(characterFavorited:CharacterFavorited) {
-        self.coreDataManager.delete(object: CharacterFavorited)
+        self.coreDataManager.delete(object: characterFavorited)
     }
 }
 
