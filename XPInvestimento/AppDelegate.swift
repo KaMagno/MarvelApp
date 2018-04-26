@@ -21,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let charactersRouter = CharactersRouter()
-        let navigationRouter = NavigationRouter(rootViewController: charactersRouter.presenter.view)
+        let charactersNavigationRouter = NavigationRouter(rootViewController: charactersRouter.presenter.view)
+        
+        let charactersFavoritedRouter = CharactersFavoriteRouter()
+        let charactersFavoritedNavigationRouter = NavigationRouter(rootViewController: charactersFavoritedRouter.presenter.view)
+        
+        let tabBarRouter = TabBarRouter(viewControllers: [charactersNavigationRouter.presenter.view,charactersFavoritedNavigationRouter.presenter.view])
         
         self.window?.rootViewController = navigationRouter.presenter.view
         self.window?.makeKeyAndVisible()
