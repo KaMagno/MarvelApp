@@ -10,7 +10,6 @@ import UIKit
 
 class CharactersFavoritedRouter: NSObject {
 
-    
     private(set) var presenter:CharactersFavoritedPresenter!
     
     override init() {
