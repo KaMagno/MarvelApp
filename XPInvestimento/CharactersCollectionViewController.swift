@@ -17,9 +17,7 @@ class CharactersCollectionViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewController
     // MARK: Properties
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
-    }
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()

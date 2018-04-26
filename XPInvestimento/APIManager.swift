@@ -24,7 +24,9 @@ class APIManager: NSObject {
     // MARK: - Functions
     // MARK: Private
     private func setStatusBar(loading:Bool){
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
     }
     
     private func endpoint<T: APIRequest>(for request: T) -> URL {
