@@ -23,6 +23,10 @@ class APIManager: NSObject {
     
     // MARK: - Functions
     // MARK: Private
+    private func setStatusBar(loading:Bool){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
     private func endpoint<T: APIRequest>(for request: T) -> URL {
         guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
         let hash = Constants.MarvelAPI.hash
@@ -33,8 +37,8 @@ class APIManager: NSObject {
     
     // MARK: Public
     func send<T>(_ request: T, completion: @escaping (Result<DataContainer<T.Response>>) -> Void) where T : APIRequest {
+        self.setStatusBar(loading: true)
         let endpoint = self.endpoint(for: request)
-        print("Endpoint: \(endpoint)")
         
         let task = session.dataTask(with: URLRequest(url: endpoint)) { data, response, error in
             if let data = data {
@@ -44,16 +48,21 @@ class APIManager: NSObject {
                     let marvelResponse = try JSONDecoder().decode(MarvelResponse<T.Response>.self, from: data)
                     
                     if let dataContainer = marvelResponse.data {
+                        self.setStatusBar(loading: false)
                         completion(Result.success(dataContainer))
                     } else if let message = marvelResponse.message {
+                        self.setStatusBar(loading: false)
                         completion(.failure(APIError.server(message: message)))
                     } else {
+                        self.setStatusBar(loading: false)
                         completion(.failure(APIError.decoding))
                     }
                 } catch {
+                    self.setStatusBar(loading: false)
                     completion(.failure(error))
                 }
             } else if let error = error {
+                self.setStatusBar(loading: false)
                 completion(.failure(error))
             }
         }

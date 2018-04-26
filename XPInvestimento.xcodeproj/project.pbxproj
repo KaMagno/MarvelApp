@@ -67,6 +67,13 @@
 		F7743292208BE30800930672 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743291208BE30800930672 /* Result.swift */; };
 		F7EB4195208D160F0052CBE2 /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB4194208D160F0052CBE2 /* APITest.swift */; };
 		F7EB41A0208D49E50052CBE2 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */; };
+		F7FC007220922F01009ABDD1 /* CharactersFavoritedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007120922F01009ABDD1 /* CharactersFavoritedRouter.swift */; };
+		F7FC007420922F0D009ABDD1 /* CharactersFavoritedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007320922F0D009ABDD1 /* CharactersFavoritedInteractor.swift */; };
+		F7FC007620922F1B009ABDD1 /* CharactersFavoritedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007520922F1B009ABDD1 /* CharactersFavoritedPresenter.swift */; };
+		F7FC007820922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007720922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift */; };
+		F7FC007B20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007A20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift */; };
+		F7FC007D20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */; };
+		F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FC007E2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +160,13 @@
 		F7EB41A3208D4D080052CBE2 /* Marvel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Bold.ttf"; sourceTree = "<group>"; };
 		F7EB41A4208D4D080052CBE2 /* Marvel-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Italic.ttf"; sourceTree = "<group>"; };
 		F7EB41A5208D4D080052CBE2 /* Marvel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Regular.ttf"; sourceTree = "<group>"; };
+		F7FC007120922F01009ABDD1 /* CharactersFavoritedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedRouter.swift; sourceTree = "<group>"; };
+		F7FC007320922F0D009ABDD1 /* CharactersFavoritedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedInteractor.swift; sourceTree = "<group>"; };
+		F7FC007520922F1B009ABDD1 /* CharactersFavoritedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedPresenter.swift; sourceTree = "<group>"; };
+		F7FC007720922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedCollectionViewController.swift; sourceTree = "<group>"; };
+		F7FC007A20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedSearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		F7FC007E2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersFavoritedCollectionViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +401,7 @@
 			children = (
 				F763B168208F564D00F50F10 /* NavigationController */,
 				F774322E208BB98200930672 /* Characters */,
+				F7FC006C20922EBF009ABDD1 /* CharactersFavorited */,
 				F774322D208BB97800930672 /* CharacterDetail */,
 				F774322C208B9D5D00930672 /* Favorites */,
 				F75BDFB3208FECA400F302FE /* Alert */,
@@ -621,6 +636,60 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F7FC006C20922EBF009ABDD1 /* CharactersFavorited */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007020922EDE009ABDD1 /* View */,
+				F7FC006F20922ED8009ABDD1 /* Presenter */,
+				F7FC006E20922ED2009ABDD1 /* Interactor */,
+				F7FC006D20922ECC009ABDD1 /* Router */,
+			);
+			name = CharactersFavorited;
+			sourceTree = "<group>";
+		};
+		F7FC006D20922ECC009ABDD1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007120922F01009ABDD1 /* CharactersFavoritedRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		F7FC006E20922ED2009ABDD1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007320922F0D009ABDD1 /* CharactersFavoritedInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		F7FC006F20922ED8009ABDD1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007520922F1B009ABDD1 /* CharactersFavoritedPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		F7FC007020922EDE009ABDD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007920922F35009ABDD1 /* Cell */,
+				F7FC007E2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard */,
+				F7FC007720922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F7FC007920922F35009ABDD1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC007A20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift */,
+				F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -733,6 +802,7 @@
 				F75BDFC52090A93900F302FE /* .gitignore in Resources */,
 				F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */,
 				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
+				F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
 				F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */,
@@ -786,11 +856,14 @@
 				F774323A208BB9E300930672 /* CharactersCollectionViewController.swift in Sources */,
 				F74B7331208EA19C002F2140 /* CharacterImage+CoreDataProperties.swift in Sources */,
 				F7743282208BDA4000930672 /* Image.swift in Sources */,
+				F7FC007420922F0D009ABDD1 /* CharactersFavoritedInteractor.swift in Sources */,
 				F75BDFBF208FECEA00F302FE /* AlertViewController.swift in Sources */,
+				F7FC007D20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift in Sources */,
 				F7743280208BD92C00930672 /* GetCharacters.swift in Sources */,
 				F7743246208BBA7100930672 /* CharacterDetailPresenter.swift in Sources */,
 				F75BDFBB208FECD900F302FE /* AlertInteractor.swift in Sources */,
 				F7743256208BBAFB00930672 /* CharactersFavoriteViewController.swift in Sources */,
+				F7FC007620922F1B009ABDD1 /* CharactersFavoritedPresenter.swift in Sources */,
 				F7743254208BBAEC00930672 /* CharactersFavoritePresenter.swift in Sources */,
 				F7743252208BBAE300930672 /* CharactersFavoriteInteractor.swift in Sources */,
 				F7743284208BDBA900930672 /* MarvelResponse.swift in Sources */,
@@ -802,6 +875,7 @@
 				F74B7328208E9AF3002F2140 /* CharacterFavorited+CoreDataProperties.swift in Sources */,
 				F75BDFC82090AF5600F302FE /* ChactersCollectionReusableView.swift in Sources */,
 				F7743244208BBA6A00930672 /* CharacterDetailInteractor.swift in Sources */,
+				F7FC007B20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift in Sources */,
 				F774328F208BE14700930672 /* APIError.swift in Sources */,
 				F774328A208BDFFF00930672 /* String+MD5.swift in Sources */,
 				F7743238208BB9D400930672 /* CharactersPresenter.swift in Sources */,
@@ -815,9 +889,11 @@
 				F74B7327208E9AF3002F2140 /* CharacterFavorited+CoreDataClass.swift in Sources */,
 				F7743236208BB9CC00930672 /* CharactersInteractor.swift in Sources */,
 				F7743286208BDC3B00930672 /* DataCointaner.swift in Sources */,
+				F7FC007220922F01009ABDD1 /* CharactersFavoritedRouter.swift in Sources */,
 				F7743250208BBADD00930672 /* CharactersFavoriteRouter.swift in Sources */,
 				F7743292208BE30800930672 /* Result.swift in Sources */,
 				F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */,
+				F7FC007820922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift in Sources */,
 				F7743242208BBA6200930672 /* CharacterDetailRouter.swift in Sources */,
 				F774327B208BD5A000930672 /* APIRequest.swift in Sources */,
 				F774328C208BE0DB00930672 /* URLQueryEncoder.swift in Sources */,
