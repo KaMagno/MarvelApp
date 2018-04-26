@@ -69,6 +69,11 @@
 		F7FC007B20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007A20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift */; };
 		F7FC007D20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */; };
 		F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FC007E2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard */; };
+		F7FC00B7209283C6009ABDD1 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC00B6209283C6009ABDD1 /* TabBarRouter.swift */; };
+		F7FC00B9209283D0009ABDD1 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC00B8209283D0009ABDD1 /* TabBarInteractor.swift */; };
+		F7FC00BB209283D7009ABDD1 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC00BA209283D7009ABDD1 /* TabBarPresenter.swift */; };
+		F7FC00BD209283F0009ABDD1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC00BC209283F0009ABDD1 /* TabBarViewController.swift */; };
+		F7FC00BF20928509009ABDD1 /* TabBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FC00BE20928509009ABDD1 /* TabBarViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +162,11 @@
 		F7FC007A20922F41009ABDD1 /* CharactersFavoritedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7FC007C20922F9E009ABDD1 /* CharactersFavoritedSearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFavoritedSearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		F7FC007E2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersFavoritedCollectionViewController.storyboard; sourceTree = "<group>"; };
+		F7FC00B6209283C6009ABDD1 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		F7FC00B8209283D0009ABDD1 /* TabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
+		F7FC00BA209283D7009ABDD1 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		F7FC00BC209283F0009ABDD1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		F7FC00BE20928509009ABDD1 /* TabBarViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,8 +649,45 @@
 		F7FC00B1209282C4009ABDD1 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				F7FC00B5209283B7009ABDD1 /* View */,
+				F7FC00B4209283B1009ABDD1 /* Presenter */,
+				F7FC00B3209283AE009ABDD1 /* Interactor */,
+				F7FC00B2209283A9009ABDD1 /* Router */,
 			);
 			name = TabBar;
+			sourceTree = "<group>";
+		};
+		F7FC00B2209283A9009ABDD1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC00B6209283C6009ABDD1 /* TabBarRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		F7FC00B3209283AE009ABDD1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC00B8209283D0009ABDD1 /* TabBarInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		F7FC00B4209283B1009ABDD1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC00BA209283D7009ABDD1 /* TabBarPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		F7FC00B5209283B7009ABDD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC00BE20928509009ABDD1 /* TabBarViewController.storyboard */,
+				F7FC00BC209283F0009ABDD1 /* TabBarViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -755,6 +802,7 @@
 				F75BDFC52090A93900F302FE /* .gitignore in Resources */,
 				F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */,
 				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
+				F7FC00BF20928509009ABDD1 /* TabBarViewController.storyboard in Resources */,
 				F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
@@ -814,8 +862,11 @@
 				F7743280208BD92C00930672 /* GetCharacters.swift in Sources */,
 				F7743246208BBA7100930672 /* CharacterDetailPresenter.swift in Sources */,
 				F75BDFBB208FECD900F302FE /* AlertInteractor.swift in Sources */,
+				F7FC00BD209283F0009ABDD1 /* TabBarViewController.swift in Sources */,
+				F7FC00B9209283D0009ABDD1 /* TabBarInteractor.swift in Sources */,
 				F7FC007620922F1B009ABDD1 /* CharactersFavoritedPresenter.swift in Sources */,
 				F7743284208BDBA900930672 /* MarvelResponse.swift in Sources */,
+				F7FC00B7209283C6009ABDD1 /* TabBarRouter.swift in Sources */,
 				F7193BA0208B9D16001B4AF1 /* AppDelegate.swift in Sources */,
 				F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */,
 				F74B7330208EA19C002F2140 /* CharacterImage+CoreDataClass.swift in Sources */,
@@ -839,6 +890,7 @@
 				F7743236208BB9CC00930672 /* CharactersInteractor.swift in Sources */,
 				F7743286208BDC3B00930672 /* DataCointaner.swift in Sources */,
 				F7FC007220922F01009ABDD1 /* CharactersFavoritedRouter.swift in Sources */,
+				F7FC00BB209283D7009ABDD1 /* TabBarPresenter.swift in Sources */,
 				F7743292208BE30800930672 /* Result.swift in Sources */,
 				F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */,
 				F7FC007820922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift in Sources */,
@@ -1026,7 +1078,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaiquemagno.XPInvestimento;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1048,7 +1100,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaiquemagno.XPInvestimento;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
