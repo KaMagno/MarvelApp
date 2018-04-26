@@ -47,8 +47,12 @@ class CharactersInteractor: NSObject {
         DataManager.shared.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset)
     }
     
-    func setFavoriteStatus(for character:Character) {
-        //TODO: Save in CoreData. Might create a CoreData Manager and change the Name of the DataManager to APIManager
+    func setFavorite(value:Bool,for character:Character) {
+        DataManager.shared.set(character: character, isFavorite: value)
+    }
+    
+    func isFavorite(chracter:Character)  -> Bool {
+        return DataManager.shared.isFavorited(character: chracter)
     }
 }
 

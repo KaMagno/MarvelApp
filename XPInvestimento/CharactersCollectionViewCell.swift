@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CharactersCollectionViewCellDelegate:class {
-    func didTapFavorite(in frame:CGRect)
+    func didTapFavorite(value:Bool, in cell:CharactersCollectionViewCell)
 }
 
 class CharactersCollectionViewCell: UICollectionViewCell {
@@ -67,6 +67,6 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBActions
     @IBAction func tapFavorite(_ sender: UIButton) {
-        self.delegate?.didTapFavorite(in: self.frame)
+        self.delegate?.didTapFavorite(value: !sender.isSelected, in: self)
     }
 }

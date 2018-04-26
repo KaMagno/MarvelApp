@@ -39,7 +39,7 @@ public struct Character: Decodable {
     }
     
     public init(characterFavorited:CharacterFavorited) {
-        self.id = characterFavorited.id
+        self.id = Int(characterFavorited.id)
         self.name = characterFavorited.name
         self.description = characterFavorited.characterDescription
         self.thumbnail = Image.init(url: characterFavorited.image?.url)

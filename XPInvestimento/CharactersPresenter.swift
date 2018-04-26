@@ -55,12 +55,16 @@ extension CharactersPresenter: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        cell.delegate = self
+        
         let character = self.interactor.characters[indexPath.row]
         cell.set(characterName: character.name ?? "No Name")
         if let url = character.thumbnail?.url {
             cell.set(characterImageURL: url)
         }
-        cell.set(isFavorite: character.isFavorited)
+        
+        let isFavorited = self.interactor.isFavorite(chracter: character)
+        cell.set(isFavorite: isFavorited)
         
         return cell
     }
@@ -104,14 +108,16 @@ extension CharactersPresenter: UICollectionViewDelegate {
 }
 
 extension CharactersPresenter: CharactersCollectionViewCellDelegate {
-    func didTapFavorite(in frame: CGRect) {
-        guard let indexPath = self.view.collectionView?.indexPathForItem(at: frame.origin) else {
+    func didTapFavorite(value: Bool, in cell: CharactersCollectionViewCell) {
+        guard let indexPath = self.view.collectionView?.indexPath(for: cell) else {
             Logger.logError(in: self, message: "Could not get the IndexPath of cell ny frame")
             return
         }
         
         let character = self.interactor.characters[indexPath.row]
-        self.interactor.setFavoriteStatus(for: character)
+        
+        self.interactor.setFavorite(value: value, for: character)
+        self.view.collectionView?.reloadItems(at: [indexPath])
     }
 }
 

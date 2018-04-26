@@ -14,14 +14,16 @@ import CoreData
 public class CharacterFavorited: NSManagedObject {
 
     required convenience public init(character:Character, in context:NSManagedObjectContext) {
-        self.init(entity: CharacterFavorited.entity(), insertInto: context)
+        let entity = CharacterFavorited.entity()
+        self.init(entity: entity, insertInto: context)
         
-        self.id = character.id
+        self.id = Int32(character.id)
         self.name = character.name
         self.characterDescription = character.description
         
-        let image = CharacterImage(character: character, in: context)
-        self.image = image
+        // FIXME: Load Image to CoreData
+//        let image = CharacterImage(character: character, in: context)
+//        self.image = image
     }
     
 }

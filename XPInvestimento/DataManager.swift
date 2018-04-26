@@ -88,8 +88,21 @@ class DataManager {
     
     func set(character:Character, isFavorite:Bool) {
         //
+        let coreDataManaer = CoreDataManager<CharacterFavorited>()
+        if isFavorite {
+            let characterFavorited = CharacterFavorited(character: character, in: coreDataManaer.managedObjectContext)
+            coreDataManaer.insert(object: characterFavorited, predicate: NSPredicate(format: "id = %i", characterFavorited.id))
+        }else{
+            let characterFavorited = CharacterFavorited(character: character, in: coreDataManaer.managedObjectContext)
+            coreDataManaer.delete(object: characterFavorited)
+        }
+        coreDataManaer.saveContext()
     }
     
-    
+    func isFavorited(character:Character) -> Bool {
+        let coreDataManager = CoreDataManager<CharacterFavorited>()
+        let predicate = NSPredicate(format: "id = %i", character.id)
+        return coreDataManager.exist(predicate: predicate)
+    }
     
 }
