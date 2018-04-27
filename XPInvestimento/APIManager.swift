@@ -25,7 +25,7 @@ class APIManager: NSObject {
     // MARK: Private
     private func setStatusBar(loading:Bool){
         DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = loading
         }
     }
     

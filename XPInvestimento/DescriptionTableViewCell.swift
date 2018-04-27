@@ -24,6 +24,9 @@ class DescriptionTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         self.outletBackgroundDescriptionView.isHidden = true
+        
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 2.0
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -72,9 +72,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUn-H5-5dF">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="96"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTI-iq-IxM">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="96"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <blurEffect style="light"/>
@@ -83,18 +83,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiG-wl-VZ8">
-                                            <rect key="frame" x="0.0" y="100" width="140" height="40"/>
+                                            <rect key="frame" x="0.0" y="96" width="140" height="44"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsk-p9-AkX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yfY-w5-X5t">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Aranha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-N2-tpA">
-                                                    <rect key="frame" x="4" y="0.0" width="108" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Aranha" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="gDh-N2-tpA">
+                                                    <rect key="frame" x="6" y="0.0" width="98" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="pfR-V0-jrG"/>
                                                     </constraints>
@@ -103,7 +103,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkD-VI-WaN">
-                                                    <rect key="frame" x="116" y="10.5" width="20" height="20"/>
+                                                    <rect key="frame" x="108" y="7.5" width="26" height="26"/>
                                                     <state key="normal" image="FavortieIcon"/>
                                                     <state key="selected" image="FavortieIcon_Filled"/>
                                                     <connections>
@@ -115,16 +115,16 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="jsk-p9-AkX" secondAttribute="trailing" id="0Zi-72-xzR"/>
                                                 <constraint firstItem="GkD-VI-WaN" firstAttribute="leading" secondItem="gDh-N2-tpA" secondAttribute="trailing" constant="4" id="1df-Ed-M75"/>
-                                                <constraint firstAttribute="trailing" secondItem="GkD-VI-WaN" secondAttribute="trailing" constant="4" id="59k-va-lzD"/>
-                                                <constraint firstItem="gDh-N2-tpA" firstAttribute="leading" secondItem="OiG-wl-VZ8" secondAttribute="leading" constant="4" id="7Cs-eb-pMi"/>
+                                                <constraint firstAttribute="trailing" secondItem="GkD-VI-WaN" secondAttribute="trailing" constant="6" id="59k-va-lzD"/>
+                                                <constraint firstItem="gDh-N2-tpA" firstAttribute="leading" secondItem="OiG-wl-VZ8" secondAttribute="leading" constant="6" id="7Cs-eb-pMi"/>
                                                 <constraint firstItem="gDh-N2-tpA" firstAttribute="top" secondItem="OiG-wl-VZ8" secondAttribute="top" id="A2c-y7-1tG"/>
                                                 <constraint firstItem="jsk-p9-AkX" firstAttribute="top" secondItem="OiG-wl-VZ8" secondAttribute="top" id="QYr-Ry-2Wp"/>
-                                                <constraint firstItem="GkD-VI-WaN" firstAttribute="height" secondItem="gDh-N2-tpA" secondAttribute="height" multiplier="0.5" id="S0H-aC-VkS"/>
+                                                <constraint firstItem="GkD-VI-WaN" firstAttribute="height" secondItem="gDh-N2-tpA" secondAttribute="height" multiplier="0.65" id="S0H-aC-VkS"/>
                                                 <constraint firstItem="jsk-p9-AkX" firstAttribute="leading" secondItem="OiG-wl-VZ8" secondAttribute="leading" id="SUj-tG-NCo"/>
                                                 <constraint firstAttribute="bottom" secondItem="jsk-p9-AkX" secondAttribute="bottom" id="fH5-EM-gVw"/>
                                                 <constraint firstItem="GkD-VI-WaN" firstAttribute="width" secondItem="GkD-VI-WaN" secondAttribute="height" id="gkl-Ij-wmT"/>
                                                 <constraint firstItem="GkD-VI-WaN" firstAttribute="centerY" secondItem="gDh-N2-tpA" secondAttribute="centerY" id="l8h-Yi-ite"/>
-                                                <constraint firstAttribute="bottom" secondItem="gDh-N2-tpA" secondAttribute="bottom" id="n1k-oe-3pK"/>
+                                                <constraint firstAttribute="bottom" secondItem="gDh-N2-tpA" secondAttribute="bottom" constant="4" id="n1k-oe-3pK"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -178,6 +178,7 @@
                             <outlet property="delegate" destination="bKS-3E-i6P" id="dr6-9Q-nF0"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Characters" image="MarvelBarIcon" id="ZHs-cr-Vp4"/>
                     <navigationItem key="navigationItem" title="Characters" id="hDm-pz-rPj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -244,8 +245,9 @@
         <image name="BackgroundView" width="375" height="667"/>
         <image name="BackgroundView_Marvel" width="375" height="667"/>
         <image name="Border" width="920" height="350"/>
-        <image name="FavortieIcon" width="100" height="91"/>
-        <image name="FavortieIcon_Filled" width="100" height="91"/>
+        <image name="FavortieIcon" width="124" height="125"/>
+        <image name="FavortieIcon_Filled" width="124" height="125"/>
+        <image name="MarvelBarIcon" width="54" height="21"/>
         <image name="Nil" width="405" height="400"/>
     </resources>
 </document>

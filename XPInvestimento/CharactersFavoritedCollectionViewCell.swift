@@ -31,7 +31,7 @@ class CharactersFavoritedCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     // MARK: Private
     func setupViews() {
-        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true

@@ -75,6 +75,7 @@
 		F7A19EDF2092D730006DFC87 /* GetCharacterComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A19EDE2092D730006DFC87 /* GetCharacterComics.swift */; };
 		F7A19EE12092D8C9006DFC87 /* GetCharacterSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A19EE02092D8C9006DFC87 /* GetCharacterSeries.swift */; };
 		F7A19EE32092F35A006DFC87 /* UIView+DefaultShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A19EE22092F35A006DFC87 /* UIView+DefaultShadow.swift */; };
+		F7A19EE520930196006DFC87 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7A19EE420930196006DFC87 /* Impact.ttf */; };
 		F7EB4195208D160F0052CBE2 /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB4194208D160F0052CBE2 /* APITest.swift */; };
 		F7EB41A0208D49E50052CBE2 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */; };
 		F7FC007220922F01009ABDD1 /* CharactersFavoritedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC007120922F01009ABDD1 /* CharactersFavoritedRouter.swift */; };
@@ -179,6 +180,7 @@
 		F7A19EDE2092D730006DFC87 /* GetCharacterComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterComics.swift; sourceTree = "<group>"; };
 		F7A19EE02092D8C9006DFC87 /* GetCharacterSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterSeries.swift; sourceTree = "<group>"; };
 		F7A19EE22092F35A006DFC87 /* UIView+DefaultShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DefaultShadow.swift"; sourceTree = "<group>"; };
+		F7A19EE420930196006DFC87 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		F7EB4194208D160F0052CBE2 /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7EB41A2208D4D080052CBE2 /* Marvel-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 		F7EB41A1208D4CE70052CBE2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F7A19EE420930196006DFC87 /* Impact.ttf */,
 				F7EB41A3208D4D080052CBE2 /* Marvel-Bold.ttf */,
 				F7EB41A2208D4D080052CBE2 /* Marvel-BoldItalic.ttf */,
 				F7EB41A4208D4D080052CBE2 /* Marvel-Italic.ttf */,
@@ -950,6 +953,7 @@
 				F7193BAD208B9D1E001B4AF1 /* LaunchScreen.storyboard in Resources */,
 				F75BDFC52090A93900F302FE /* .gitignore in Resources */,
 				F75BDFAD208FD84000F302FE /* Marvel-BoldItalic.ttf in Resources */,
+				F7A19EE520930196006DFC87 /* Impact.ttf in Resources */,
 				F75BDFAE208FD84000F302FE /* Marvel-Italic.ttf in Resources */,
 				F7FC00BF20928509009ABDD1 /* TabBarViewController.storyboard in Resources */,
 				F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */,

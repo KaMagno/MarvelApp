@@ -20,15 +20,11 @@
         <scene sceneID="EeB-gm-v5J">
             <objects>
                 <tableViewController storyboardIdentifier="CharacterDetailTableViewController" id="1L1-nk-4aY" customClass="CharacterDetailTableViewController" customModule="XPInvestimento" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yAk-2D-wDw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yAk-2D-wDw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="L5G-4l-ejh">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DescriptionCell" rowHeight="200" id="alR-nP-4gV" customClass="DescriptionTableViewCell" customModule="XPInvestimento" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="200"/>
@@ -83,9 +79,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sgm-Wu-ADU">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sgm-Wu-ADU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LdV-Wk-nmI">
                                                 <size key="itemSize" width="120" height="120"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -127,6 +123,7 @@
                                                             </visualEffectView>
                                                         </subviews>
                                                     </view>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="x3B-vx-W2O" secondAttribute="bottom" id="0Fg-Cr-xVJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="x3B-vx-W2O" secondAttribute="trailing" id="5cp-9F-gag"/>
@@ -146,6 +143,7 @@
                                             </cells>
                                         </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Sgm-Wu-ADU" firstAttribute="leading" secondItem="Y0X-i5-7aY" secondAttribute="leading" id="61I-ZP-tBM"/>
                                         <constraint firstAttribute="bottom" secondItem="Sgm-Wu-ADU" secondAttribute="bottom" id="9x3-Nc-RkM"/>
@@ -153,6 +151,7 @@
                                         <constraint firstItem="Sgm-Wu-ADU" firstAttribute="top" secondItem="Y0X-i5-7aY" secondAttribute="top" id="Ul0-kz-C2r"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="collectionView" destination="Sgm-Wu-ADU" id="PEy-oU-xnL"/>
                                 </connections>
@@ -164,8 +163,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="Gx3-vq-O26">
-                        <barButtonItem key="rightBarButtonItem" image="FavortieIcon" width="20" id="plI-G9-Z0S">
-                            <color key="tintColor" red="0.99942404029999998" green="0.90168861925903121" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="FavortieBarIcon" width="20" id="plI-G9-Z0S">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapFavorite:" destination="1L1-nk-4aY" id="2p1-jx-vBZ"/>
                             </connections>
@@ -201,6 +200,6 @@
     </scenes>
     <resources>
         <image name="BackgroundView_Marvel" width="375" height="667"/>
-        <image name="FavortieIcon" width="100" height="91"/>
+        <image name="FavortieBarIcon" width="31" height="31"/>
     </resources>
 </document>

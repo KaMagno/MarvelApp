@@ -12,6 +12,10 @@ class NavigationViewController: UINavigationController {
     
     var presenter:NavigationPresenter!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,14 +23,17 @@ class NavigationViewController: UINavigationController {
         self.navigationBar.prefersLargeTitles = true
         self.navigationBar.isTranslucent = true
         self.navigationBar.barTintColor = .black
+        self.navigationBar.tintColor = .white
+        self.navigationBar.backgroundColor = .black
         self.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.font: UIFont(name: "Marvel-Bold", size: 60.0) ?? UIFont.systemFont(ofSize: 60.0),
-            NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            NSAttributedStringKey.font: UIFont(name: "Impact", size: 40.0) ?? UIFont.systemFont(ofSize: 60.0),
+            NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
         ]
         self.navigationBar.titleTextAttributes = [
-            NSAttributedStringKey.font: UIFont(name: "Marvel-Bold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0),
+            NSAttributedStringKey.font: UIFont(name: "Impact", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0),
             NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         ]
+        
     }
     
     override func didReceiveMemoryWarning() {

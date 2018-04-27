@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Favorited-->
+        <!--Favorites-->
         <scene sceneID="ov5-7w-5gm">
             <objects>
                 <collectionViewController storyboardIdentifier="CharactersFavoritedCollectionViewController" id="535-Ae-6jL" customClass="CharactersFavoritedCollectionViewController" customModule="XPInvestimento" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,9 +73,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ7-ay-qCO">
-                                            <rect key="frame" x="0.0" y="0.0" width="149" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="149" height="97"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XfH-nt-bmY">
-                                                <rect key="frame" x="0.0" y="0.0" width="149" height="101"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="149" height="97"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <blurEffect style="light"/>
@@ -84,18 +84,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="149" height="141"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ds-Ld-AWg">
-                                            <rect key="frame" x="0.0" y="101" width="149" height="40"/>
+                                            <rect key="frame" x="0.0" y="97" width="149" height="44"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-sr-UgM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="44"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qlx-88-rsX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="149" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="149" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Aranha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Apg-2g-4Kw">
-                                                    <rect key="frame" x="4" y="0.0" width="117" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Aranha" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Apg-2g-4Kw">
+                                                    <rect key="frame" x="6" y="0.0" width="107" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Zwb-5q-huY"/>
                                                     </constraints>
@@ -104,7 +104,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WP9-Kp-nlj">
-                                                    <rect key="frame" x="125" y="10.5" width="20" height="20"/>
+                                                    <rect key="frame" x="117" y="7.5" width="26" height="26"/>
                                                     <state key="normal" image="FavortieIcon"/>
                                                     <state key="selected" image="FavortieIcon_Filled"/>
                                                     <connections>
@@ -116,14 +116,14 @@
                                             <constraints>
                                                 <constraint firstItem="Apg-2g-4Kw" firstAttribute="top" secondItem="0Ds-Ld-AWg" secondAttribute="top" id="6rH-oo-mfe"/>
                                                 <constraint firstItem="WP9-Kp-nlj" firstAttribute="leading" secondItem="Apg-2g-4Kw" secondAttribute="trailing" constant="4" id="8bp-Av-oz6"/>
-                                                <constraint firstItem="Apg-2g-4Kw" firstAttribute="leading" secondItem="0Ds-Ld-AWg" secondAttribute="leading" constant="4" id="Ruh-dh-ecz"/>
-                                                <constraint firstAttribute="bottom" secondItem="Apg-2g-4Kw" secondAttribute="bottom" id="X49-6c-ArX"/>
+                                                <constraint firstItem="Apg-2g-4Kw" firstAttribute="leading" secondItem="0Ds-Ld-AWg" secondAttribute="leading" constant="6" id="Ruh-dh-ecz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Apg-2g-4Kw" secondAttribute="bottom" constant="4" id="X49-6c-ArX"/>
                                                 <constraint firstAttribute="bottom" secondItem="u1R-sr-UgM" secondAttribute="bottom" id="fQN-M8-g2P"/>
                                                 <constraint firstItem="u1R-sr-UgM" firstAttribute="leading" secondItem="0Ds-Ld-AWg" secondAttribute="leading" id="fuM-UB-yox"/>
-                                                <constraint firstItem="WP9-Kp-nlj" firstAttribute="height" secondItem="Apg-2g-4Kw" secondAttribute="height" multiplier="0.5" id="lDQ-gr-E9a"/>
+                                                <constraint firstItem="WP9-Kp-nlj" firstAttribute="height" secondItem="Apg-2g-4Kw" secondAttribute="height" multiplier="0.65" id="lDQ-gr-E9a"/>
                                                 <constraint firstItem="WP9-Kp-nlj" firstAttribute="width" secondItem="WP9-Kp-nlj" secondAttribute="height" id="qpg-a3-AeN"/>
                                                 <constraint firstItem="WP9-Kp-nlj" firstAttribute="centerY" secondItem="Apg-2g-4Kw" secondAttribute="centerY" id="sD9-zZ-jQD"/>
-                                                <constraint firstAttribute="trailing" secondItem="WP9-Kp-nlj" secondAttribute="trailing" constant="4" id="wB6-1P-Sxg"/>
+                                                <constraint firstAttribute="trailing" secondItem="WP9-Kp-nlj" secondAttribute="trailing" constant="6" id="wB6-1P-Sxg"/>
                                                 <constraint firstItem="u1R-sr-UgM" firstAttribute="top" secondItem="0Ds-Ld-AWg" secondAttribute="top" id="wSV-IB-RQh"/>
                                                 <constraint firstAttribute="trailing" secondItem="u1R-sr-UgM" secondAttribute="trailing" id="yfc-gT-FOk"/>
                                             </constraints>
@@ -156,10 +156,10 @@
                             <outlet property="delegate" destination="535-Ae-6jL" id="IAI-Cd-B99"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="fsq-Bo-OkT">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="FavoritedTabBarIcon" id="fsq-Bo-OkT">
                         <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Favorited" id="sI4-61-Ep8"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="sI4-61-Ep8"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -226,8 +226,9 @@
         <image name="BackgroundView" width="375" height="667"/>
         <image name="BackgroundView_Marvel" width="375" height="667"/>
         <image name="Border" width="920" height="350"/>
-        <image name="FavortieIcon" width="100" height="91"/>
-        <image name="FavortieIcon_Filled" width="100" height="91"/>
+        <image name="FavoritedTabBarIcon" width="27" height="27"/>
+        <image name="FavortieIcon" width="124" height="125"/>
+        <image name="FavortieIcon_Filled" width="124" height="125"/>
         <image name="Nil" width="405" height="400"/>
     </resources>
 </document>

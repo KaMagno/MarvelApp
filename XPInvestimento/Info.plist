@@ -43,6 +43,7 @@
 		<string>Marvel-BoldItalic.ttf</string>
 		<string>Marvel-Italic.ttf</string>
 		<string>Marvel-Regular.ttf</string>
+		<string>Impact.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

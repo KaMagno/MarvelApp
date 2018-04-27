@@ -31,7 +31,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     // MARK: - Functions
     // MARK: Private
     func setupViews() {
-        self.contentView.layer.borderColor = UIColor.gray.cgColor
+        self.contentView.layer.borderColor = UIColor.black.cgColor
         self.contentView.layer.borderWidth = 2.0
         self.contentView.layer.cornerRadius = 10.0
         
@@ -39,7 +39,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         let ratio:CGFloat = 0.90
         let rect = CGRect(x: (self.bounds.width*(1-ratio))/2, y: (self.bounds.height*(1-ratio))/2, width: self.bounds.width*ratio, height: self.bounds.height*ratio)
         self.layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: self.contentView.layer.cornerRadius).cgPath
-        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: -8.0, height: 0.0)
         self.layer.shadowOpacity = 0.8
         self.layer.shadowRadius = 5

@@ -125,6 +125,12 @@ extension CharacterDetailPresenter:UITableViewDataSource {
         }
         return nil
     }
+   
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
+        if let headerTitle = view as? UITableViewHeaderFooterView {
+            headerTitle.textLabel?.textColor = UIColor.white
+        }
+    }
 }
 
 extension CharacterDetailPresenter:UITableViewDelegate {

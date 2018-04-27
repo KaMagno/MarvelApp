@@ -34,15 +34,15 @@ class CharacterDetailTableViewController: UITableViewController {
     }
     
     private func setupView(){
-//        self.tableView.backgroundView = self.outletBackgroundView
+        self.tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "BackgroundView"))
         self.tableView.backgroundColor = .white
     }
     
     private func setFavoriteButton(selected:Bool) {
         if selected {
-            self.outletFavoriteButton.setBackgroundImage(#imageLiteral(resourceName: "FavortieIcon_Filled"), for: .normal, barMetrics: .default)
+            self.outletFavoriteButton.image = #imageLiteral(resourceName: "FavortieBarIcon_Filled")
         }else{
-            self.outletFavoriteButton.setBackgroundImage(#imageLiteral(resourceName: "FavortieIcon"), for: .normal, barMetrics: .default)
+            self.outletFavoriteButton.image = #imageLiteral(resourceName: "FavortieBarIcon")
         }
     }
     
