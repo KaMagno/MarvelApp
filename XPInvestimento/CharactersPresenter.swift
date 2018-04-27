@@ -106,7 +106,13 @@ extension CharactersPresenter: UICollectionViewDelegate {
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "default", for: indexPath) as? CharactersCollectionViewCell else {
+            Logger.logError(in: self, message: "Could not cast cell to  ")
+            return
+        }
+        cell.cleanData()
+    }
 }
 
 extension CharactersPresenter: CharactersCollectionViewCellDelegate {
@@ -127,7 +133,7 @@ extension CharactersPresenter: CharactersInteractorDelegate {
     func isLoading(_ loading:Bool) {
         
     }
-    func didLoad(characters: [Character]) {
+    func didLoad() {
         DispatchQueue.main.async {
             self.view.collectionView?.reloadData()
             self.view.collectionView?.refreshControl?.endRefreshing()
@@ -142,13 +148,17 @@ extension CharactersPresenter: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != nil {
             searchBar.text = ""
-            self.interactor.cleanCharacters()
-            self.interactor.fetchCharacters()
+            self.interactor.cancelSearchCharatcers()
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
             self.interactor.fetchCharacters(nameStartsWith: text)
+        }
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == nil || searchBar.text?.isEmpty ?? false {
+            self.interactor.cancelSearchCharatcers()
         }
     }
 }
