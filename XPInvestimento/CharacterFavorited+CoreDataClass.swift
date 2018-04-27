@@ -14,8 +14,9 @@ import CoreData
 public class CharacterFavorited: NSManagedObject {
 
     required convenience public init(character:Character, in context:NSManagedObjectContext) {
-        let entity = CharacterFavorited.entity()
-        self.init(entity: entity, insertInto: context)
+//        let entity = CharacterFavorited.entity()
+        let enittyDescription = NSEntityDescription.entity(forEntityName: "CharacterFavorited", in: context)!
+        self.init(entity: enittyDescription, insertInto: context)
         
         self.id = Int32(character.id)
         self.name = character.name
