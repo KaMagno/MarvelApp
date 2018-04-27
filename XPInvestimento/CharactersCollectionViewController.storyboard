@@ -21,7 +21,7 @@
         <scene sceneID="twf-9w-FXC">
             <objects>
                 <collectionViewController storyboardIdentifier="CharactersCollectionViewController" id="bKS-3E-i6P" customClass="CharactersCollectionViewController" customModule="XPInvestimento" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="548-Iq-7bN">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" id="548-Iq-7bN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,9 +154,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <searchBar contentMode="redraw" barStyle="black" placeholder="Character Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLq-Fn-EDS">
+                                <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Character Name" translatesAutoresizingMaskIntoConstraints="NO" id="aLq-Fn-EDS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     <scopeButtonTitles>
                                         <string>Title</string>
                                         <string>Title</string>
