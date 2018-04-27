@@ -54,7 +54,7 @@
                                             <constraint firstAttribute="bottom" secondItem="nGg-gK-iHO" secondAttribute="bottom" id="mVh-YO-4ah"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error to load characters." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59Z-Bp-mqa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error to load characters." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59Z-Bp-mqa">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
                                         <fontDescription key="fontDescription" name="Marvel-Bold" family="Marvel" pointSize="20"/>
                                         <nil key="textColor"/>

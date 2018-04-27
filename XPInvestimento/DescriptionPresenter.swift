@@ -26,6 +26,9 @@ class DescriptionPresenter: NSObject {
         
         super.init()
         self.view.presenter = self
+        
+        self.view.set(description: self.interactor.text)
+        self.view.set(image: self.interactor.image)
     }
     
     // MARK: - Functions

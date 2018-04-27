@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterDetailTableViewController: UITableViewController {
 
+    @IBOutlet var outletBackgroundView: UIView!
     @IBOutlet weak var outletFavoriteButton:UIBarButtonItem!
     
     // MARK: - Properties
@@ -20,6 +21,9 @@ class CharacterDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
+        self.tableView.dataSource = self.presenter
+        self.tableView.delegate = self.presenter
         
         self.presenter.viewDidLoad()
     }
@@ -29,12 +33,21 @@ class CharacterDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func setupView(){
+//        self.tableView.backgroundView = self.outletBackgroundView
+        self.tableView.backgroundColor = .white
+    }
+    
     private func setFavoriteButton(selected:Bool) {
         if selected {
             self.outletFavoriteButton.setBackgroundImage(#imageLiteral(resourceName: "FavortieIcon_Filled"), for: .normal, barMetrics: .default)
         }else{
             self.outletFavoriteButton.setBackgroundImage(#imageLiteral(resourceName: "FavortieIcon"), for: .normal, barMetrics: .default)
         }
+    }
+    
+    func set(title:String) {
+        self.title = title
     }
     
     func set(isFavorite:Bool) {

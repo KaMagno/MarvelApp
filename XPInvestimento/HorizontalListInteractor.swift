@@ -16,7 +16,7 @@ class HorizontalListInteractor: NSObject {
     private(set) var objects:[HorizontalListObject]
     
     init(objects:[HorizontalListObject]) {
-        self.objects = comics
+        self.objects = objects
     }
     
     // MARK: - Functions

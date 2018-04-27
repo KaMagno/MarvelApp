@@ -9,6 +9,6 @@
 import UIKit
 
 protocol HorizontalListObject {
-    func getName() -> String
-    func getImage() -> UIImage
+    func getName() -> String?
+    func getImage() -> Image?
 }

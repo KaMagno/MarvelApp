@@ -10,12 +10,13 @@ import UIKit
 
 class DescriptionInteractor: NSObject {
 
-    var image:UIImage
+    var image:Image
     var text:String
     
-    init(image:UIImage, text:String) {
+    init(image:Image, text:String) {
         self.image = image
         self.text = text
     }
-    
 }
+
+

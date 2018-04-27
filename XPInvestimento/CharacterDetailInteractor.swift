@@ -10,11 +10,11 @@ import UIKit
 
 protocol CharacterDetailInteractorDelegate:class {
     func didLoad(comics:[Comic])
-    func didLoad(tvshows:[TvShow])
+    func didLoad(series:[Serie])
     func didFail(error: Error)
 }
 
-class CharacterDetailInteractor: NSObject {
+class CharacterDetailInteractor {
 
     // MARK: - Properties
     // MARK: Private
@@ -22,22 +22,23 @@ class CharacterDetailInteractor: NSObject {
     weak var delegate:CharacterDetailInteractorDelegate?
     var character:Character
     var comics:[Comic] = []
-    var tvshows:[TvShow] = []
+    var series:[Serie] = []
     
     // MARK: - Init
     init(character:Character) {
         self.character = character
+        DataManager.shared.delegate = self
     }
     
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
     func fetchComics(){
-        
+        DataManager.shared.getComics(character: self.character)
     }
     
-    func fetchTvShows(){
-        
+    func fetchSeries(){
+        DataManager.shared.getSeries(character: self.character)
     }
     
     func setFavorite(value:Bool) {
@@ -45,6 +46,28 @@ class CharacterDetailInteractor: NSObject {
     }
     
     func isFavorite()  -> Bool {
-        return DataManager.shared.isFavorited(character: self.chracter)
+        return DataManager.shared.isFavorited(character: self.character)
     }
+}
+
+extension CharacterDetailInteractor:DataManagerDelegate {
+    func didLoad(comics: [Comic]) {
+        self.comics = comics
+        self.delegate?.didLoad(comics: comics)
+    }
+    
+    func didLoad(series: [Serie]) {
+        self.series = series
+        self.delegate?.didLoad(series: series)
+    }
+    
+    func didLoad(characters: [Character]) {
+        //
+    }
+    
+    func didFail(error: Error) {
+        self.delegate?.didFail(error: error)
+    }
+    
+    
 }

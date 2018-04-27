@@ -25,6 +25,8 @@ class HorizontalListPresenter: NSObject {
         
         super.init()
         self.view.presenter = self
+        self.view.collectionView.dataSource = self
+        self.view.collectionView.delegate = self
     }
     
     // MARK: - Functions
@@ -46,7 +48,20 @@ extension HorizontalListPresenter:UICollectionViewDataSource {
         
         let object = self.interactor.objects[indexPath.row]
         cell.outletTitle.text = object.getName()
-        cell.outletImage.image = object.getImage()
+        
+        cell.outletImage.image = #imageLiteral(resourceName: "Nil")
+        
+        if let image = object.getImage() {
+            ImageManager.shared.fetchImage(from: image.url) { (fetchedImage, error) in
+                if let fetchedImageVerified = fetchedImage {
+                    DispatchQueue.main.async {
+                        cell.outletImage.image = fetchedImageVerified
+                    }
+                }
+            }
+        }
+        
+        return cell
     }
 }
 

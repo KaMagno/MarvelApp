@@ -12,7 +12,7 @@ class DescriptionRouter: NSObject {
     
     private(set) var presenter:DescriptionPresenter!
     
-    init(cell:DescriptionTableViewCell,with image: UIImage,and description: String) {
+    init(cell:DescriptionTableViewCell,with image: Image,and description: String) {
         //Instancing Variables
         
         super.init()

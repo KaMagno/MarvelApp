@@ -1,5 +1,5 @@
 //
-//  Comic.swift
+//  Serie.swift
 //  XPInvestimento
 //
 //  Created by Kaique Magno Dos Santos on 27/04/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Comic:Decodable {
+public struct Serie: Decodable {
 
     enum Keys:String,CodingKey {
         case name = "title"
@@ -25,7 +25,7 @@ struct Comic:Decodable {
     }
 }
 
-extension Comic:HorizontalListObject {
+extension Serie:HorizontalListObject {
     func getName() -> String? {
         return self.name
     }

@@ -92,7 +92,9 @@ extension CharactersFavoritedPresenter: UICollectionViewDataSource {
 
 extension CharactersFavoritedPresenter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let characterFavorited = self.interactor.characters[indexPath.row]
+        let character = Character(characterFavorited: characterFavorited)
+        self.router.showDetailt(of: character)
     }
 }
 

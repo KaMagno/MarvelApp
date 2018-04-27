@@ -34,4 +34,8 @@ class CharactersRouter:NSObject {
     deinit {
         ImageManager.shared.cleanCache()
     }
+    
+    func showDetailt(of character:Character) {
+        CharacterDetailRouter.show(character: character, from: self.presenter.view)
+    }
 }

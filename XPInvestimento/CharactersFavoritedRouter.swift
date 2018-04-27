@@ -33,6 +33,10 @@ class CharactersFavoritedRouter: NSObject {
         self.presenter = CharactersFavoritedPresenter(router: self, interactor: interactor, view: view)
     }
     
+    func showDetailt(of character:Character) {
+        CharacterDetailRouter.show(character: character, from: self.presenter.view)
+    }
+    
     func showAlert(message:String, buttonTitle:String = "Okay") {
         AlertRouter.showAlert(with: message, buttonTitle: buttonTitle, sender: self.presenter.view)
     }

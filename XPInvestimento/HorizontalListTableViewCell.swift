@@ -12,14 +12,10 @@ class HorizontalListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView:UICollectionView!
     
-    var presenter:HorizontalListPresenter!
+    var presenter:HorizontalListPresenter?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.collectionView.dataSource = self.presenter
-        self.collectionView.delegate = self.presenter
-        
         self.setupFlowLayout()
     }
     
@@ -29,7 +25,7 @@ class HorizontalListTableViewCell: UITableViewCell {
             return
         }
         
-        let _ = self.contentView.bounds.width
+        let width = self.contentView.bounds.width
         let height = self.contentView.bounds.height
         
         let sizeRatio:CGFloat = 0.8
@@ -37,6 +33,7 @@ class HorizontalListTableViewCell: UITableViewCell {
         
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: height*0.8, height: height*0.8)
+        flowLayout.minimumLineSpacing = width*0.1
         flowLayout.sectionInset = UIEdgeInsets(top: height*edgeRatio, left: height*edgeRatio, bottom: height*edgeRatio, right: height*edgeRatio)
     }
 }

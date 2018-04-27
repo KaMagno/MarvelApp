@@ -33,6 +33,9 @@ class CharacterDetailPresenter: NSObject {
     // MARK: Public
     func viewDidLoad() {
         self.setFavorite()
+        self.interactor.fetchComics()
+        self.interactor.fetchSeries()
+        self.view.set(title: self.interactor.character.name ?? "Unknown")
     }
     
     func didTapFavorite(value:Bool) {
@@ -58,7 +61,7 @@ extension CharacterDetailPresenter:UITableViewDataSource {
                 Logger.logError(in: self, message: "Could not cast cell to DescriptionTableViewCell")
                 return UITableViewCell()
             }
-            let router = DescriptionRouter(cell: cell, with: self.interactor.character.image ?? #imageLiteral(resourceName: "Nil"), and: self.interactor.character.description ?? "")
+            let router = DescriptionRouter(cell: cell, with: self.interactor.character.thumbnail!, and: self.interactor.character.description ?? "")
             return router.presenter.view
             
         case 1:
@@ -75,7 +78,7 @@ extension CharacterDetailPresenter:UITableViewDataSource {
                 Logger.logError(in: self, message: "Could not cast cell to DescriptionTableViewCell")
                 return UITableViewCell()
             }
-            let router = HorizontalListRouter(cell: cell, with: self.interactor.tvshows)
+            let router = HorizontalListRouter(cell: cell, with: self.interactor.series)
             return router.presenter.view
             
         default:
@@ -83,15 +86,44 @@ extension CharacterDetailPresenter:UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            if self.interactor.comics.count == 0 && self.interactor.series.count == 0 {
+                tableView.bounces = false
+                return 260
+            }else{
+                tableView.bounces = true
+                return 200
+            }
+        case 1:
+            if self.interactor.comics.count > 0 {
+                return 160
+            }
+        case 2:
+            if self.interactor.series.count > 0 {
+                return 160
+            }
+        default:
+            return 40
+        }
+        return 0
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 1:
-            return "Comics"
+            if self.interactor.comics.count > 0 {
+                return "Comics"
+            }
         case 2:
-            return "TVShows"
+            if self.interactor.series.count > 0 {
+                return "Series"
+            }
         default:
             return nil
         }
+        return nil
     }
 }
 
@@ -107,7 +139,7 @@ extension CharacterDetailPresenter:CharacterDetailInteractorDelegate {
         }
     }
     
-    func didLoad(tvshows: [TvShow]) {
+    func didLoad(series: [Serie]) {
         let indexPath = IndexPath(row: 0, section: 2)
         DispatchQueue.main.async {
             self.view.tableView.reloadRows(at: [indexPath], with: .none)
@@ -115,7 +147,7 @@ extension CharacterDetailPresenter:CharacterDetailInteractorDelegate {
     }
     
     func didFail(error: Error) {
-        //TODO:Show alert with error
+        self.router.showAlertLoadindDataError()
     }
     
     
