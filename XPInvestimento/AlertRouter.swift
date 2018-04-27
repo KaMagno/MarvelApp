@@ -43,7 +43,9 @@ class AlertRouter: NSObject {
     static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController) {
         let router = AlertRouter(message: message, buttonTitle: buttonTitle)
         
-        sender.present(router.presenter.view, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            sender.present(router.presenter.view, animated: true, completion: nil)
+        }
     }
     
 }

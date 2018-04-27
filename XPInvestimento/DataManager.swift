@@ -9,6 +9,8 @@
 import UIKit
 
 protocol DataManagerDelegate:class {
+    func didLoad(comics: [Comic])
+    func didLoad(series: [Serie])
     func didLoad(characters: [Character])
     func didFail(error: Error)
 }
@@ -31,12 +33,13 @@ class DataManager {
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
+    
+    // MARK: Characters
     func getCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
         guard let delegateVerified = self.delegate else {
             Logger.logError(in: self, message: "Delegate is nil")
             return
         }
-        
         
         
         //Get characters from API
@@ -104,5 +107,54 @@ class DataManager {
         let predicate = NSPredicate(format: "id = %i", character.id)
         return coreDataManager.exist(predicate: predicate)
     }
+    
+    // MARK: Comics
+    func getComics(character:Character) {
+        guard let delegateVerified = self.delegate else {
+            Logger.logError(in: self, message: "Delegate is nil")
+            return
+        }
+        
+        //Get characters from API
+        let request = GetCharacterComics(characterId: character.id)
+        APIManager.shared.send(request, completion: { (response) in
+            
+            //Response from API
+            switch response {
+            case .success(let dataContainer):
+                //Verify if any Character is saved
+                delegateVerified.didLoad(comics: dataContainer.results)
+                
+            case .failure(let error):
+                //
+                delegateVerified.didFail(error: error)
+            }
+        })
+    }
+    
+    func getSeries(character:Character) {
+        guard let delegateVerified = self.delegate else {
+            Logger.logError(in: self, message: "Delegate is nil")
+            return
+        }
+        
+        //Get characters from API
+        let request = GetCharacterSeries(characterId: character.id)
+        APIManager.shared.send(request, completion: { (response) in
+            
+            //Response from API
+            switch response {
+            case .success(let dataContainer):
+                //Verify if any Character is saved
+                delegateVerified.didLoad(series: dataContainer.results)
+                
+            case .failure(let error):
+                //
+                delegateVerified.didFail(error: error)
+            }
+        })
+    }
+    
+    // MARK: Series
     
 }

@@ -89,7 +89,9 @@ extension CharactersPresenter: UICollectionViewDataSource {
 
 extension CharactersPresenter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = self.interactor.characters[indexPath.row]
         
+        self.router.showDetailt(of: character)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

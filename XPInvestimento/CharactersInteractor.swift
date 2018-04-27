@@ -57,6 +57,14 @@ class CharactersInteractor: NSObject {
 }
 
 extension CharactersInteractor:DataManagerDelegate {
+    func didLoad(comics: [Comic]) {
+        //
+    }
+    
+    func didLoad(series: [Serie]) {
+        //
+    }
+    
     func didLoad(characters: [Character]) {
         self.characters.append(contentsOf: characters)
         self.delegate?.didLoad(characters: characters)
