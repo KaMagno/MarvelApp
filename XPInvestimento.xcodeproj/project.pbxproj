@@ -43,7 +43,6 @@
 		F774325E208BBC6800930672 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774325D208BBC6800930672 /* Logger.swift */; };
 		F7743265208BBCFE00930672 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743264208BBCFE00930672 /* Constants.swift */; };
 		F774326F208BD11100930672 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = F774326E208BD11100930672 /* Cartfile */; };
-		F7743272208BD19100930672 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7743271208BD19100930672 /* CryptoSwift.framework */; };
 		F7743275208BD2CB00930672 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7743274208BD2CB00930672 /* DataManager.swift */; };
 		F774327B208BD5A000930672 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774327A208BD5A000930672 /* APIRequest.swift */; };
 		F7743280208BD92C00930672 /* GetCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774327F208BD92C00930672 /* GetCharacters.swift */; };
@@ -208,7 +207,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7743272208BD19100930672 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
