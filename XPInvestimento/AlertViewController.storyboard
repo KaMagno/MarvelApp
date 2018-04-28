@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Marvel-Bold.ttf">
+            <string>Marvel-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Alert View Controller-->
+        <scene sceneID="GHB-zF-z8O">
+            <objects>
+                <viewController storyboardIdentifier="AlertViewController_Message" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="buf-Td-EK6" customClass="AlertViewController" customModule="XPInvestimento" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3XC-M2-Ixf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-LV-Gav">
+                                <rect key="frame" x="37" y="233" width="300" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axD-6g-lV0">
+                                        <rect key="frame" x="0.0" y="160" width="300" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-gK-iHO">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                                <color key="backgroundColor" name="NavigationBar - Background"/>
+                                                <fontDescription key="fontDescription" name="Marvel-Bold" family="Marvel" pointSize="20"/>
+                                                <state key="normal" title="Okay">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tapConfirmButton:" destination="buf-Td-EK6" eventType="touchUpInside" id="Cpk-p4-VeO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nGg-gK-iHO" firstAttribute="leading" secondItem="axD-6g-lV0" secondAttribute="leading" id="ByU-Ac-bAe"/>
+                                            <constraint firstAttribute="trailing" secondItem="nGg-gK-iHO" secondAttribute="trailing" id="IA0-Lz-EzL"/>
+                                            <constraint firstAttribute="height" constant="40" id="XEe-zY-C7c"/>
+                                            <constraint firstItem="nGg-gK-iHO" firstAttribute="top" secondItem="axD-6g-lV0" secondAttribute="top" id="jMF-sM-V6v"/>
+                                            <constraint firstAttribute="bottom" secondItem="nGg-gK-iHO" secondAttribute="bottom" id="mVh-YO-4ah"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error to load characters." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59Z-Bp-mqa">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
+                                        <fontDescription key="fontDescription" name="Marvel-Bold" family="Marvel" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DHk-LV-Gav" secondAttribute="height" multiplier="3:2" id="04S-Q2-gaD"/>
+                                    <constraint firstItem="axD-6g-lV0" firstAttribute="leading" secondItem="iAJ-kK-q9R" secondAttribute="leading" id="5uV-yI-hSs"/>
+                                    <constraint firstItem="axD-6g-lV0" firstAttribute="top" secondItem="59Z-Bp-mqa" secondAttribute="bottom" id="LTj-w1-dBm"/>
+                                    <constraint firstItem="axD-6g-lV0" firstAttribute="trailing" secondItem="iAJ-kK-q9R" secondAttribute="trailing" id="UYX-Nr-rpX"/>
+                                    <constraint firstItem="59Z-Bp-mqa" firstAttribute="leading" secondItem="iAJ-kK-q9R" secondAttribute="leading" id="bjO-Qp-cc4"/>
+                                    <constraint firstItem="59Z-Bp-mqa" firstAttribute="top" secondItem="iAJ-kK-q9R" secondAttribute="top" id="dta-LO-H3G"/>
+                                    <constraint firstItem="iAJ-kK-q9R" firstAttribute="trailing" secondItem="59Z-Bp-mqa" secondAttribute="trailing" id="hYK-VE-qKo"/>
+                                    <constraint firstAttribute="height" constant="200" id="skK-hr-EKO"/>
+                                    <constraint firstItem="axD-6g-lV0" firstAttribute="bottom" secondItem="iAJ-kK-q9R" secondAttribute="bottom" id="tGY-9b-7p7"/>
+                                    <constraint firstAttribute="width" constant="300" id="uSH-2b-ukl"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="iAJ-kK-q9R"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DHk-LV-Gav" firstAttribute="centerY" secondItem="3XC-M2-Ixf" secondAttribute="centerY" id="bcB-Kc-C3v"/>
+                            <constraint firstItem="DHk-LV-Gav" firstAttribute="centerX" secondItem="3XC-M2-Ixf" secondAttribute="centerX" id="gWb-sL-27z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vwD-Gt-Ihz"/>
+                    </view>
+                    <connections>
+                        <outlet property="outletAlertView" destination="DHk-LV-Gav" id="sxA-by-LZe"/>
+                        <outlet property="outletConfirmButton" destination="nGg-gK-iHO" id="iON-b4-51G"/>
+                        <outlet property="outletMessageLabel" destination="59Z-Bp-mqa" id="IOr-L1-FWT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nH1-xZ-DjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="NavigationBar - Background">
+            <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
