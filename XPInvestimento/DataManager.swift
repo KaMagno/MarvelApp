@@ -87,10 +87,8 @@ class DataManager {
     
     func set(character:Character, isFavorite:Bool) {
         //
-        
         let characterCoreDataManager = CoreDataManager<Character>()
         if isFavorite {
-            character.isFavorited = true
             if let thumbnail = character.thumbnail{
                 let thumbnailCoreDataManager = CoreDataManager<Thumbnail>()
                 thumbnailCoreDataManager.insert(object: thumbnail)
@@ -103,7 +101,9 @@ class DataManager {
     }
     
     func isFavorited(character:Character) -> Bool {
-        return character.isFavorited
+        let coreDataManager = CoreDataManager<Character>()
+        let predicate = NSPredicate(format: "id = %i", character.id)
+        return coreDataManager.exist(predicate: predicate)
     }
     
     // MARK: Comics

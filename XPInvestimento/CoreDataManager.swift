@@ -39,8 +39,9 @@ public class CoreDataManager<T:NSManagedObject>:NSObject {
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         fetchRequest.predicate = predicate
         do {
-            let count = try CoreDataSingleton.shared.persistentContainer.viewContext.count(for: fetchRequest)
-            return count >= 1
+            var count = 0
+            count = try CoreDataSingleton.shared.persistentContainer.viewContext.count(for: fetchRequest)
+            return count == 1
         } catch {
             return false
         }

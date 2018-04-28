@@ -28,7 +28,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XPInvestimento/CharactersFavoritedPresenter.swift"
-            timestampString = "546639950.109105"
+            timestampString = "546642487.273003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
@@ -44,7 +44,7 @@
                   moduleName = "XPInvestimento"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kaiquemagno/Development/iOS/XPInvestimento/XPInvestimento/CharactersFavoritedPresenter.swift"
-                  timestampString = "546639950.257614"
+                  timestampString = "546641895.354332"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -59,7 +59,7 @@
                   moduleName = "XPInvestimento"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kaiquemagno/Development/iOS/XPInvestimento/XPInvestimento/CharactersFavoritedPresenter.swift"
-                  timestampString = "546639950.259434"
+                  timestampString = "546641895.358171"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -67,6 +67,54 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XPInvestimento/CoreDataManager.swift"
+            timestampString = "546642487.273319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "exist(predicate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XPInvestimento/CharactersInteractor.swift"
+            timestampString = "546642487.273828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "fetchedCharacters"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XPInvestimento/CharactersPresenter.swift"
+            timestampString = "546642487.2740459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
