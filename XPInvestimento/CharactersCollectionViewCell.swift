@@ -10,6 +10,7 @@ import UIKit
 
 protocol CharactersCollectionViewCellDelegate:class {
     func didTapFavorite(value:Bool, in cell:CharactersCollectionViewCell)
+    func didLoad(image:UIImage, in cell: CharactersCollectionViewCell)
 }
 
 class CharactersCollectionViewCell: UICollectionViewCell {
@@ -54,10 +55,14 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     func set(characterImageURL:URL) {
         ImageManager.shared.fetchImage(from: characterImageURL) { (image, error) in
-            DispatchQueue.main.async {
-                if let imageVerified = image {
+            
+            if let imageVerified = image {
+                self.delegate?.didLoad(image: imageVerified, in: self)
+                DispatchQueue.main.async {
                     self.outletCharacterImage.image = imageVerified
-                } else {
+                }
+            } else {
+                DispatchQueue.main.async {
                     self.outletCharacterImage.image = #imageLiteral(resourceName: "Nil")
                 }
             }
@@ -69,11 +74,11 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     func cleanData() {
-        DispatchQueue.main.async {
-            self.outletCharacterName.text = "No Name"
-            self.outletCharacterImage.image = nil
-            self.outletFavoriteButton.isSelected = false
-        }
+    
+        self.outletCharacterName.text = "No Name"
+        self.outletCharacterImage.image = nil
+        self.outletFavoriteButton.isSelected = false
+        
     }
     
     // MARK: - IBActions

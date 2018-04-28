@@ -27,14 +27,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XPInvestimento/CharactersCollectionViewCell.swift"
-            timestampString = "546542464.552397"
+            filePath = "XPInvestimento/CharactersFavoritedPresenter.swift"
+            timestampString = "546639950.109105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "set(characterImageURL:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "didLoad(characters:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XPInvestimento.CharactersFavoritedPresenter.didLoad(characters: Swift.Array&lt;XPInvestimento.Character&gt;) -&gt; ()"
+                  moduleName = "XPInvestimento"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiquemagno/Development/iOS/XPInvestimento/XPInvestimento/CharactersFavoritedPresenter.swift"
+                  timestampString = "546639950.257614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in XPInvestimento.CharactersFavoritedPresenter.didLoad(characters: Swift.Array&lt;XPInvestimento.Character&gt;) -&gt; ()"
+                  moduleName = "XPInvestimento"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiquemagno/Development/iOS/XPInvestimento/XPInvestimento/CharactersFavoritedPresenter.swift"
+                  timestampString = "546639950.259434"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

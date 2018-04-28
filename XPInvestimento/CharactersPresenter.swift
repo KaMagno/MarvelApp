@@ -58,8 +58,9 @@ extension CharactersPresenter: UICollectionViewDataSource {
         cell.delegate = self
         
         let character = self.interactor.characters[indexPath.row]
-        cell.set(characterName: character.name ?? "No Name")
-        if let url = character.thumbnail?.url {
+        cell.set(characterName: character.name ?? "No Name!")
+        if let thumbnail = character.thumbnail,
+            let url = URL(string: thumbnail.url!) {
             cell.set(characterImageURL: url)
         }
         
@@ -99,7 +100,7 @@ extension CharactersPresenter: UICollectionViewDelegate {
             Logger.logError(in: self, message: "Could not cast cell to  ")
             return
         }
-        cell.cleanData()
+        
         
         if self.interactor.characters.count-10 == indexPath.row {
             self.interactor.fetchCharacters(offset: indexPath.row)
@@ -111,6 +112,7 @@ extension CharactersPresenter: UICollectionViewDelegate {
             Logger.logError(in: self, message: "Could not cast cell to  ")
             return
         }
+        
         cell.cleanData()
     }
 }
@@ -118,7 +120,7 @@ extension CharactersPresenter: UICollectionViewDelegate {
 extension CharactersPresenter: CharactersCollectionViewCellDelegate {
     func didTapFavorite(value: Bool, in cell: CharactersCollectionViewCell) {
         guard let indexPath = self.view.collectionView?.indexPath(for: cell) else {
-            Logger.logError(in: self, message: "Could not get the IndexPath of cell ny frame")
+            Logger.logError(in: self, message: "Could not get the IndexPath of cell by frame")
             return
         }
         
@@ -126,6 +128,22 @@ extension CharactersPresenter: CharactersCollectionViewCellDelegate {
         
         self.interactor.setFavorite(value: value, for: character)
         self.view.collectionView?.reloadItems(at: [indexPath])
+    }
+    
+    func didLoad(image: UIImage, in cell: CharactersCollectionViewCell) {
+        DispatchQueue.main.async {
+            guard let indexPath = self.view.collectionView?.indexPath(for: cell) else {
+                Logger.logError(in: self, message: "Could not get the IndexPath of cell by frame")
+                return
+            }
+            
+            let character = self.interactor.characters[indexPath.row]
+            guard let data = UIImageJPEGRepresentation(image, 0.5) else {
+                Logger.logError(in: self, message: "Error to compress Thumbnail into data from Character.name\(character.name ?? "No Name") in indexPath.row: \(indexPath.row)")
+                return
+            }
+            character.thumbnail?.data = data as NSData
+        }
     }
 }
 

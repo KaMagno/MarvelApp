@@ -41,16 +41,9 @@ class CharactersFavoritedCollectionViewCell: UICollectionViewCell {
         self.outletCharacterName.text = characterName
     }
     
-    func set(characterImageURL:URL) {
-        ImageManager.shared.fetchImage(from: characterImageURL) { (image, error) in
-            DispatchQueue.main.async {
-                if let imageVerified = image {
-                    self.outletCharacterImage.image = imageVerified
-                } else {
-                    self.outletCharacterImage.image = #imageLiteral(resourceName: "Nil")
-                }
-            }
-        }
+    func set(image:UIImage) {
+        self.outletCharacterImage.image = image
+        
     }
     
     func set(isFavorite:Bool) {

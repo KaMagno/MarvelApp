@@ -38,13 +38,15 @@ class CharactersFavoritedPresenter: NSObject {
         self.reload()
     }
     
-    @objc func reload() {
+    func reload() {
         do {
             try self.interactor.fetchCharacters()
         } catch {
             Logger.logError(in: self, message: error.localizedDescription)
             self.router.showAlertLoadindDataError()
         }
+        
+        self.view.collectionView?.reloadData()
     }
 }
 
@@ -64,9 +66,12 @@ extension CharactersFavoritedPresenter: UICollectionViewDataSource {
         
         let character = self.interactor.characters[indexPath.row]
         cell.set(characterName: character.name ?? "No Name")
-//        if let url = character.thumbnail?.url {
-//            cell.set(characterImageURL: url)
-//        }
+        
+        if let data = character.thumbnail?.data {
+            let image = UIImage(data: data as Data)
+            cell.set(image: image!)
+        }
+        
         cell.set(isFavorite: true)
         
         return cell
@@ -92,8 +97,7 @@ extension CharactersFavoritedPresenter: UICollectionViewDataSource {
 
 extension CharactersFavoritedPresenter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let characterFavorited = self.interactor.characters[indexPath.row]
-        let character = Character(characterFavorited: characterFavorited)
+        let character = self.interactor.characters[indexPath.row]
         self.router.showDetailt(of: character)
     }
 }

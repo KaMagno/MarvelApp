@@ -19,9 +19,9 @@ class CharactersFavoritedInteractor: NSObject {
 
     // MARK: - Properties
     // MARK: Private
-    private var coreDataManager = CoreDataManager<CharacterFavorited>()
+    private var coreDataManager = CoreDataManager<Character>()
     // MARK: Public
-    private(set) var characters = [CharacterFavorited]()
+    private(set) var characters = [Character]()
     weak var delegate:CharactersFavoritedInteractorDelegate?
     
     // MARK: - Init
@@ -58,7 +58,7 @@ class CharactersFavoritedInteractor: NSObject {
         }
     }
     
-    func remove(characterFavorited:CharacterFavorited) {
+    func remove(characterFavorited:Character) {
         self.coreDataManager.delete(object: characterFavorited)
     }
 }
