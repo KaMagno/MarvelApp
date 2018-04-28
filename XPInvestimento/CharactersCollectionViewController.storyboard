@@ -184,6 +184,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="outletDefaultBackgroundView" destination="hZN-UF-umE" id="fKw-xs-f0H"/>
+                        <outlet property="outletEmptyBackgroundView" destination="OQm-gK-tT0" id="WIh-N0-ZT0"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmP-jk-Qwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
