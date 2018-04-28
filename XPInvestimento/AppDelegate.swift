@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = UIColor.init(patternImage: #imageLiteral(resourceName: "BackgroundView"))
         
         let charactersRouter = CharactersRouter()
         let charactersNavigationRouter = NavigationRouter(rootViewController: charactersRouter.presenter.view)

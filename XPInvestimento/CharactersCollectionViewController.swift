@@ -40,6 +40,9 @@ class CharactersCollectionViewController: UICollectionViewController {
     }
     
     func setupLayout() {
+        self.view.backgroundColor = UIColor.init(patternImage: #imageLiteral(resourceName: "BackgroundView"))
+        self.collectionView?.backgroundColor = UIColor.init(patternImage: #imageLiteral(resourceName: "BackgroundView"))
+        
         guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
             Logger.logError(in: self, message: "Could not cast \(self.collectionViewLayout) to UICollectionViewFlowLayout")
             return
