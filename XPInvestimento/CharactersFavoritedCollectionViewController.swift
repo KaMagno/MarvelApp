@@ -22,21 +22,19 @@ class CharactersFavoritedCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupRefreshControl()
         self.setupLayout()
         self.presenter.viewDidLoad()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.reload()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    func setupRefreshControl(){
-        let refresh = UIRefreshControl()
-        refresh.addTarget(presenter, action: #selector(CharactersPresenter.reload), for: .valueChanged)
-        refresh.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.collectionView?.refreshControl = refresh
     }
     
     func setupLayout() {

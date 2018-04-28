@@ -47,7 +47,10 @@ class APIManager: NSObject {
                 do {
                     // Decode the top level response, and look up the decoded response to see
                     // if it's a success or a failure
-                    let marvelResponse = try JSONDecoder().decode(MarvelResponse<T.Response>.self, from: data)
+                    let coreDataManager = CoreDataManager()
+                    let decoder = JSONDecoder()
+                    decoder.userInfo[CodingUserInfoKey.context] = CoreDataSingleton.shared.persistentContainer.viewContext
+                    let marvelResponse = try decoder.decode(MarvelResponse<T.Response>.self, from: data)
                     
                     if let dataContainer = marvelResponse.data {
                         self.setStatusBar(loading: false)

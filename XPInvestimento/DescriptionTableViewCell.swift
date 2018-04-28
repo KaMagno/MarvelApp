@@ -39,8 +39,9 @@ class DescriptionTableViewCell: UITableViewCell {
         self.outletDescription.text = description
     }
     
-    func set(image:Image) {
-        ImageManager.shared.fetchImage(from: image.url) { (fetchedImage, error) in
+    func set(image:Thumbnail) {
+        let url = URL(string: image.url!)!
+        ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
             if let fetchedImageVerified = fetchedImage {
                 DispatchQueue.main.async {
                     self.outletImage.image = fetchedImageVerified

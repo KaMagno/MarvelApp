@@ -1,5 +1,5 @@
 //
-//  HorizontalListObject.swift
+//  A.swift
 //  XPInvestimento
 //
 //  Created by Kaique Magno Dos Santos on 27/04/18.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-protocol HorizontalListObject {
-    func getName() -> String?
-    func getImage() -> Thumbnail?
+extension CodingUserInfoKey {
+    static let context = CodingUserInfoKey(rawValue: "context")!
 }

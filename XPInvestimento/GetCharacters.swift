@@ -9,6 +9,7 @@
 import UIKit
 
 class GetCharacters: APIRequest {
+    
     typealias Response = [Character]
     
     var endpoint: String {

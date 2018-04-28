@@ -51,13 +51,12 @@ class DataManager {
             case .success(let dataContainer):
                 //Verify if any Character is saved
                 let characters = dataContainer.results.map({ (characterElement) -> Character in
-                    let coreDataManager = CoreDataManager<CharacterFavorited>()
-                    
-                    var character = characterElement
-                    let predicate = NSPredicate(format: "id = %i", character.id)
-                    character.isFavorited = coreDataManager.exist(predicate: predicate)
+                    let coreDataManager = CoreDataManager<Character>()
 
-                    return character
+                    let predicate = NSPredicate(format: "id = %i", characterElement.id)
+                    characterElement.isFavorited = coreDataManager.exist(predicate: predicate)
+
+                    return characterElement
                 })
                 //
                 delegateVerified.didLoad(characters: characters)
@@ -76,11 +75,8 @@ class DataManager {
         }
         
         do {
-            let coreDataManager = CoreDataManager<CharacterFavorited>()
-            let charactersFavorited = try coreDataManager.get(filter: nil)
-            let characters = charactersFavorited.map { (characterFavorited) -> Character in
-                return Character(characterFavorited: characterFavorited)
-            }
+            let coreDataManager = CoreDataManager<Character>()
+            let characters = try coreDataManager.get(filter: nil)
             delegateVerified.didLoad(characters: characters)
         } catch {
             Logger.logError(in: self, message: error.localizedDescription)
@@ -91,19 +87,21 @@ class DataManager {
     
     func set(character:Character, isFavorite:Bool) {
         //
-        let coreDataManaer = CoreDataManager<CharacterFavorited>()
+        let characterCoreDataManager = CoreDataManager<Character>()
         if isFavorite {
-            let characterFavorited = CharacterFavorited(character: character, in: coreDataManaer.managedObjectContext)
-            coreDataManaer.insert(object: characterFavorited, predicate: NSPredicate(format: "id = %i", characterFavorited.id))
+            if let thumbnail = character.thumbnail{
+                let thumbnailCoreDataManager = CoreDataManager<Thumbnail>()
+                thumbnailCoreDataManager.insert(object: thumbnail)
+            }
+            characterCoreDataManager.insert(object: character)
         }else{
-            let characterFavorited = CharacterFavorited(character: character, in: coreDataManaer.managedObjectContext)
-            coreDataManaer.delete(object: characterFavorited)
+            characterCoreDataManager.delete(object: character)
         }
-        coreDataManaer.saveContext()
+        CoreDataSingleton.shared.saveContext()
     }
     
     func isFavorited(character:Character) -> Bool {
-        let coreDataManager = CoreDataManager<CharacterFavorited>()
+        let coreDataManager = CoreDataManager<Character>()
         let predicate = NSPredicate(format: "id = %i", character.id)
         return coreDataManager.exist(predicate: predicate)
     }
@@ -116,7 +114,7 @@ class DataManager {
         }
         
         //Get characters from API
-        let request = GetCharacterComics(characterId: character.id)
+        let request = GetCharacterComics(characterId: Int(character.id))
         APIManager.shared.send(request, completion: { (response) in
             
             //Response from API
@@ -139,7 +137,7 @@ class DataManager {
         }
         
         //Get characters from API
-        let request = GetCharacterSeries(characterId: character.id)
+        let request = GetCharacterSeries(characterId: Int(character.id))
         APIManager.shared.send(request, completion: { (response) in
             
             //Response from API

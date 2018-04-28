@@ -16,12 +16,12 @@ struct Comic:Decodable {
     }
     
     let name:String?
-    let thumbnail:Image?
+    let thumbnail:Thumbnail?
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Keys.self)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
-        self.thumbnail = try values.decodeIfPresent(Image.self, forKey: .thumbnail)
+        self.thumbnail = try values.decodeIfPresent(Thumbnail.self, forKey: .thumbnail)
     }
 }
 
@@ -29,7 +29,7 @@ extension Comic:HorizontalListObject {
     func getName() -> String? {
         return self.name
     }
-    func getImage() -> Image? {
+    func getImage() -> Thumbnail? {
         return self.thumbnail
     }
 }

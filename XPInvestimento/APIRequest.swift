@@ -6,10 +6,10 @@
 //  Copyright © 2018 Kaique Magno. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
 protocol APIRequest: Encodable {
-    associatedtype Response: Decodable
+    associatedtype Response: Decodable 
     
     var endpoint: String { get }
 }

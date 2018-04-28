@@ -52,7 +52,8 @@ extension HorizontalListPresenter:UICollectionViewDataSource {
         cell.outletImage.image = #imageLiteral(resourceName: "Nil")
         
         if let image = object.getImage() {
-            ImageManager.shared.fetchImage(from: image.url) { (fetchedImage, error) in
+            let url = URL(string: image.url!)!
+            ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
                 if let fetchedImageVerified = fetchedImage {
                     DispatchQueue.main.async {
                         cell.outletImage.image = fetchedImageVerified
