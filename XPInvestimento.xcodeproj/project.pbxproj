@@ -25,6 +25,8 @@
 		F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */; };
 		F75BDFC52090A93900F302FE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F75BDFC42090A93900F302FE /* .gitignore */; };
 		F75BDFC82090AF5600F302FE /* ChactersCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75BDFC72090AF5600F302FE /* ChactersCollectionReusableView.swift */; };
+		F75EC38C20952414002E23C5 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75EC38B20952414002E23C5 /* Reachability.framework */; };
+		F75EC38F2095244B002E23C5 /* RecheabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75EC38E2095244B002E23C5 /* RecheabilityManager.swift */; };
 		F763B170208F56B800F50F10 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B16F208F56B800F50F10 /* NavigationViewController.swift */; };
 		F763B172208F57E200F50F10 /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B171208F57E200F50F10 /* NavigationPresenter.swift */; };
 		F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F763B173208F57EB00F50F10 /* NavigationInteractor.swift */; };
@@ -130,6 +132,8 @@
 		F75BDFC0208FECF200F302FE /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		F75BDFC42090A93900F302FE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		F75BDFC72090AF5600F302FE /* ChactersCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChactersCollectionReusableView.swift; sourceTree = "<group>"; };
+		F75EC38B20952414002E23C5 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		F75EC38E2095244B002E23C5 /* RecheabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecheabilityManager.swift; sourceTree = "<group>"; };
 		F763B16F208F56B800F50F10 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		F763B171208F57E200F50F10 /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		F763B173208F57EB00F50F10 /* NavigationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInteractor.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75EC38C20952414002E23C5 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +383,14 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		F75EC38D2095243A002E23C5 /* Recheability */ = {
+			isa = PBXGroup;
+			children = (
+				F75EC38E2095244B002E23C5 /* RecheabilityManager.swift */,
+			);
+			name = Recheability;
+			sourceTree = "<group>";
+		};
 		F763B168208F564D00F50F10 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +548,7 @@
 		F774325B208BBC5400930672 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F75EC38D2095243A002E23C5 /* Recheability */,
 				F763B18C208F8C0100F50F10 /* Image */,
 				F74B731E208E7E01002F2140 /* API */,
 				F74B7315208E31F6002F2140 /* CoreData */,
@@ -584,6 +598,7 @@
 		F7743270208BD19100930672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F75EC38B20952414002E23C5 /* Reachability.framework */,
 				F7743271208BD19100930672 /* CryptoSwift.framework */,
 			);
 			name = Frameworks;
@@ -996,7 +1011,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			outputPaths = (
 			);
@@ -1067,6 +1082,7 @@
 				F7A19ED12092B821006DFC87 /* DescriptionPresenter.swift in Sources */,
 				F7DB35D52094F3AA0023F2B7 /* CoreDataSingleton.swift in Sources */,
 				F7FC00BB209283D7009ABDD1 /* TabBarPresenter.swift in Sources */,
+				F75EC38F2095244B002E23C5 /* RecheabilityManager.swift in Sources */,
 				F7743292208BE30800930672 /* Result.swift in Sources */,
 				F763B174208F57EB00F50F10 /* NavigationInteractor.swift in Sources */,
 				F7FC007820922F27009ABDD1 /* CharactersFavoritedCollectionViewController.swift in Sources */,

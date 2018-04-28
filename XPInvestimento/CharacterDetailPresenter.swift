@@ -153,7 +153,12 @@ extension CharacterDetailPresenter:CharacterDetailInteractorDelegate {
     }
     
     func didFail(error: Error) {
-        self.router.showAlertLoadindDataError()
+        if !error.localizedDescription.isEmpty {
+            self.router.showAlert(message: error.localizedDescription)
+        }else{
+            self.router.showAlertLoadindDataError()
+        }
+        
     }
     
     

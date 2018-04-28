@@ -158,7 +158,10 @@ extension CharactersPresenter: CharactersInteractorDelegate {
         }
     }
     func didFail(error: Error) {
-        //TODO: Error Screen View
+        DispatchQueue.main.async {
+            self.router.showAlert(message: error.localizedDescription)
+            self.view.collectionView?.refreshControl?.endRefreshing()
+        }
     }
 }
 

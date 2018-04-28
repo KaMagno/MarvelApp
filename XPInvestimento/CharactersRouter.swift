@@ -38,4 +38,8 @@ class CharactersRouter:NSObject {
     func showDetailt(of character:Character) {
         CharacterDetailRouter.show(character: character, from: self.presenter.view)
     }
+    
+    func showAlert(message:String) {
+        AlertRouter.showAlert(with: message, sender: self.presenter.view)
+    }
 }

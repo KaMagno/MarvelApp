@@ -40,11 +40,21 @@ class AlertRouter: NSObject {
     }
     
     // MARK: - Static Functions
-    static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController) {
+    static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController?) {
         let router = AlertRouter(message: message, buttonTitle: buttonTitle)
         
         DispatchQueue.main.async {
-            sender.present(router.presenter.view, animated: true, completion: nil)
+            if let sender = sender {
+                sender.present(router.presenter.view, animated: true, completion: nil)
+            }else{
+                guard let mainWindows = UIApplication.shared.delegate?.window,
+                    let rootViewController = mainWindows?.rootViewController else {
+                    Logger.logError(in: self, message: "Could not get RootViewController")
+                    return
+                }
+                rootViewController.present(router.presenter.view, animated: true, completion: nil)
+            }
+            
         }
     }
     

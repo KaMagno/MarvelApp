@@ -40,7 +40,11 @@ class CharacterDetailRouter {
     }
     
     func showAlertLoadindDataError() {
-        AlertRouter.showAlert(with: "It was not possible to load the Favorited Characters", sender: self.presenter.view)
+        AlertRouter.showAlert(with: "We had a problem. Probably is Thanos messing around.", sender: self.presenter.view)
+    }
+    
+    func showAlert(message:String) {
+        AlertRouter.showAlert(with: message, sender: self.presenter.view)
     }
     
     
