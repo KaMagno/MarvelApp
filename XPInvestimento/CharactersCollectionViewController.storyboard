@@ -225,7 +225,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundView_Marvel" translatesAutoresizingMaskIntoConstraints="NO" id="td2-dH-f33">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundView" translatesAutoresizingMaskIntoConstraints="NO" id="td2-dH-f33">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         </imageView>
                     </subviews>
@@ -244,7 +244,6 @@
     </scenes>
     <resources>
         <image name="BackgroundView" width="375" height="667"/>
-        <image name="BackgroundView_Marvel" width="375" height="667"/>
         <image name="Border" width="920" height="350"/>
         <image name="FavortieIcon" width="124" height="125"/>
         <image name="FavortieIcon_Filled" width="124" height="125"/>
