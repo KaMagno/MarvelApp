@@ -27,47 +27,38 @@ class CharacterDetailInteractor {
     // MARK: - Init
     init(character:Character) {
         self.character = character
-        DataManager.shared.delegate = self
     }
     
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
     func fetchComics(){
-        DataManager.shared.getComics(character: self.character)
+        DataManager.getComics(character: self.character) { (result) in
+            switch result {
+            case .success(let comicsResult):
+                self.delegate?.didLoad(comics: comicsResult)
+            case .failure(let error):
+                self.delegate?.didFail(error: error)
+            }
+        }
     }
     
     func fetchSeries(){
-        DataManager.shared.getSeries(character: self.character)
+        DataManager.getSeries(character: self.character) { (result) in
+            switch result {
+            case .success(let seriesResult):
+                self.delegate?.didLoad(series: seriesResult)
+            case .failure(let error):
+                self.delegate?.didFail(error: error)
+            }
+        }
     }
     
     func setFavorite(value:Bool) {
-        DataManager.shared.set(character: self.character, isFavorite: value)
+        DataManager.set(character: self.character, isFavorite: value)
     }
     
     func isFavorite()  -> Bool {
-        return DataManager.shared.isFavorited(character: self.character)
+        return DataManager.isFavorited(character: self.character)
     }
-}
-
-extension CharacterDetailInteractor:DataManagerDelegate {
-    func didLoad(comics: [Comic]) {
-        self.comics = comics
-        self.delegate?.didLoad(comics: comics)
-    }
-    
-    func didLoad(series: [Serie]) {
-        self.series = series
-        self.delegate?.didLoad(series: series)
-    }
-    
-    func didLoad(characters: [Character]) {
-        //
-    }
-    
-    func didFail(error: Error) {
-        self.delegate?.didFail(error: error)
-    }
-    
-    
 }

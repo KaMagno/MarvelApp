@@ -24,12 +24,23 @@ class CharactersInteractor: NSObject {
     // MARK: Public
     private(set) var offsetLastModified:Int = 0
     private(set) var offset:Int = 0
-    var characters:[Character] {
-        if self.isSearching {
-            return self.searchedCharacters
-        }else{
-            return self.fetchedCharacters
+    private(set) var characters:[Character] {
+        get {
+            if self.isSearching {
+                return self.searchedCharacters
+            }else{
+                return self.fetchedCharacters
+            }
         }
+        
+        set{
+            if self.isSearching {
+                return self.searchedCharacters = newValue
+            }else{
+                return self.fetchedCharacters = newValue
+            }
+        }
+        
     }
     
     private(set) var isSearching = false
@@ -38,7 +49,6 @@ class CharactersInteractor: NSObject {
     // MARK: - Init
     override init() {
         super.init()
-        DataManager.shared.delegate = self
     }
     
     // MARK: - Functions
@@ -66,37 +76,22 @@ class CharactersInteractor: NSObject {
                 self.offset = self.offset <= 0 ? 0: self.offset-Constants.MarvelAPI.offset
             }
         }
-        DataManager.shared.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset)
+        DataManager.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset) { (result) in
+            switch result {
+            case .success(let charactersResult):
+                self.characters.append(contentsOf: charactersResult)
+                self.delegate?.didLoad()
+            case .failure(let error):
+                self.delegate?.didFail(error: error)
+        }
+        }
     }
     
     func setFavorite(value:Bool,for character:Character) {
-        DataManager.shared.set(character: character, isFavorite: value)
+        DataManager.set(character: character, isFavorite: value)
     }
     
     func isFavorite(chracter:Character)  -> Bool {
-        return DataManager.shared.isFavorited(character: chracter)
-    }
-}
-
-extension CharactersInteractor:DataManagerDelegate {
-    func didLoad(comics: [Comic]) {
-        //
-    }
-    
-    func didLoad(series: [Serie]) {
-        //
-    }
-    
-    func didLoad(characters: [Character]) {
-        if self.isSearching {
-            self.searchedCharacters.append(contentsOf: characters)
-            self.delegate?.didLoad()
-        }else{
-            self.fetchedCharacters.append(contentsOf: characters)
-            self.delegate?.didLoad()
-        }
-    }
-    func didFail(error: Error) {
-        self.delegate?.didFail(error: error)
+        return DataManager.isFavorited(character: chracter)
     }
 }
