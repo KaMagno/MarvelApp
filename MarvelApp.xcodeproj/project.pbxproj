@@ -77,6 +77,8 @@
 		F7A19EE520930196006DFC87 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7A19EE420930196006DFC87 /* Impact.ttf */; };
 		F7A19EF42093D7EF006DFC87 /* CodingUserInfoKey+CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A19EF32093D7EF006DFC87 /* CodingUserInfoKey+CoreDataContext.swift */; };
 		F7A19EF62093F308006DFC87 /* NSManagedObject+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A19EF52093F308006DFC87 /* NSManagedObject+Errors.swift */; };
+		F7CF12C021B8CDEF0020CA87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F7CF12BE21B8CDEF0020CA87 /* README.md */; };
+		F7CF12C121B8CDEF0020CA87 /* _config.yml in Resources */ = {isa = PBXBuildFile; fileRef = F7CF12BF21B8CDEF0020CA87 /* _config.yml */; };
 		F7DB35D52094F3AA0023F2B7 /* CoreDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB35D42094F3AA0023F2B7 /* CoreDataSingleton.swift */; };
 		F7EB4195208D160F0052CBE2 /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB4194208D160F0052CBE2 /* APITest.swift */; };
 		F7EB41A0208D49E50052CBE2 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */; };
@@ -185,6 +187,8 @@
 		F7A19EE420930196006DFC87 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		F7A19EF32093D7EF006DFC87 /* CodingUserInfoKey+CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+CoreDataContext.swift"; sourceTree = "<group>"; };
 		F7A19EF52093F308006DFC87 /* NSManagedObject+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Errors.swift"; sourceTree = "<group>"; };
+		F7CF12BE21B8CDEF0020CA87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F7CF12BF21B8CDEF0020CA87 /* _config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _config.yml; sourceTree = "<group>"; };
 		F7DB35D42094F3AA0023F2B7 /* CoreDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSingleton.swift; sourceTree = "<group>"; };
 		F7EB4194208D160F0052CBE2 /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		F7EB419F208D49E50052CBE2 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				F7193B9E208B9D16001B4AF1 /* MarvelApp */,
+				F7CF12BD21B8CDEF0020CA87 /* docs */,
 				F7193BB6208B9D1E001B4AF1 /* MarvelAppTests */,
 				F7193BC1208B9D1E001B4AF1 /* MarvelAppUITests */,
 				F7193B9D208B9D16001B4AF1 /* Products */,
@@ -756,6 +761,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		F7CF12BD21B8CDEF0020CA87 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				F7CF12BE21B8CDEF0020CA87 /* README.md */,
+				F7CF12BF21B8CDEF0020CA87 /* _config.yml */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
 		F7EB41A1208D4CE70052CBE2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,6 +985,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CF12C121B8CDEF0020CA87 /* _config.yml in Resources */,
 				F75BDFAC208FD84000F302FE /* Marvel-Bold.ttf in Resources */,
 				F774326F208BD11100930672 /* Cartfile in Resources */,
 				F774324A208BBA8500930672 /* CharacterDetailTableViewController.storyboard in Resources */,
@@ -983,6 +998,7 @@
 				F7FC007F2092317D009ABDD1 /* CharactersFavoritedCollectionViewController.storyboard in Resources */,
 				F774323C208BB9F100930672 /* CharactersCollectionViewController.storyboard in Resources */,
 				F7193BAA208B9D1E001B4AF1 /* Assets.xcassets in Resources */,
+				F7CF12C021B8CDEF0020CA87 /* README.md in Resources */,
 				F75BDFC1208FECF200F302FE /* AlertViewController.storyboard in Resources */,
 				F75BDFAF208FD84000F302FE /* Marvel-Regular.ttf in Resources */,
 			);
