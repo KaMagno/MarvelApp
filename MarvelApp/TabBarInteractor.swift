@@ -9,5 +9,5 @@
 import UIKit
 
 class TabBarInteractor: NSObject {
-
+    
 }

@@ -21,6 +21,8 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var outletFavoriteButton: UIButton!
     
     // MARK: - Properties
+    // MARK: Private
+    private var imagePath:URL!
     // MARK: Public
     weak var delegate:CharactersCollectionViewCellDelegate?
     
@@ -54,12 +56,17 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     func set(characterImageURL:URL) {
+        self.imagePath = characterImageURL
         ImageManager.shared.fetchImage(from: characterImageURL) { (image, error) in
             
             if let imageVerified = image {
                 self.delegate?.didLoad(image: imageVerified, in: self)
                 DispatchQueue.main.async {
-                    self.outletCharacterImage.image = imageVerified
+                    if self.imagePath == characterImageURL {
+                        self.outletCharacterImage.image = imageVerified
+                    }else{
+                        self.outletCharacterImage.image = #imageLiteral(resourceName: "Nil")
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
@@ -74,7 +81,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     func cleanData() {
-    
+        
         self.outletCharacterName.text = "No Name"
         self.outletCharacterImage.image = nil
         self.outletFavoriteButton.isSelected = false
