@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol DataManagerDelegate:class {
-    func didLoad(comics: [Comic])
-    func didLoad(series: [Serie])
-    func didLoad(characters: [Character])
-    func didFail(error: Error)
-}
-
+/// DataManager group all function related to data. This class is a layer to handle CoreData and API data management.
 class DataManager {
     
     // MARK: - Properties
@@ -23,7 +17,6 @@ class DataManager {
     
     // MARK: Public
     static let shared:DataManager = DataManager()
-    weak var delegate:DataManagerDelegate?
     
     // MARK: - Init
     private init(){
@@ -31,16 +24,11 @@ class DataManager {
     }
     
     // MARK: - Functions
-    // MARK: Private
-    // MARK: Public
+    // MARK: -- Private
+    // MARK: -- Public
     
     // MARK: Characters
-    func getCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
-        guard let delegateVerified = self.delegate else {
-            Logger.logError(in: self, message: "Delegate is nil")
-            return
-        }
-        
+    func getCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil, completion:@escaping ResultCallback<[Character]>) {
         
         //Get characters from API
         let request = GetCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: offset)
@@ -59,29 +47,19 @@ class DataManager {
                     return characterElement
                 })
                 //
-                delegateVerified.didLoad(characters: characters)
+                completion(.success(characters))
                 
             case .failure(let error):
                 //
-                delegateVerified.didFail(error: error)
+                completion(.failure(error))
             }
         })
     }
     
-    func getFavoriteCharacters() {
-        guard let delegateVerified = self.delegate else {
-            Logger.logError(in: self, message: "Delegate is nil")
-            return
-        }
-        
-        do {
-            let coreDataManager = CoreDataManager<Character>()
-            let characters = try coreDataManager.get(filter: nil)
-            delegateVerified.didLoad(characters: characters)
-        } catch {
-            Logger.logError(in: self, message: error.localizedDescription)
-            delegateVerified.didFail(error: error)
-        }
+    func getFavoriteCharacters() throws -> [Character] {
+        let coreDataManager = CoreDataManager<Character>()
+        let characters = try coreDataManager.get(filter: nil)
+        return characters
     }
     
     
@@ -107,11 +85,7 @@ class DataManager {
     }
     
     // MARK: Comics
-    func getComics(character:Character) {
-        guard let delegateVerified = self.delegate else {
-            Logger.logError(in: self, message: "Delegate is nil")
-            return
-        }
+    func getComics(character:Character, completion:@escaping ResultCallback<[Comic]>) {
         
         //Get characters from API
         let request = GetCharacterComics(characterId: Int(character.id))
@@ -121,21 +95,17 @@ class DataManager {
             switch response {
             case .success(let dataContainer):
                 //Verify if any Character is saved
-                delegateVerified.didLoad(comics: dataContainer.results)
+                completion(.success(dataContainer.results))
                 
             case .failure(let error):
                 //
-                delegateVerified.didFail(error: error)
+                completion(.failure(error))
             }
         })
     }
     
-    func getSeries(character:Character) {
-        guard let delegateVerified = self.delegate else {
-            Logger.logError(in: self, message: "Delegate is nil")
-            return
-        }
-        
+    // MARK: Series
+    func getSeries(character:Character, completion:@escaping ResultCallback<[Serie]>) {
         //Get characters from API
         let request = GetCharacterSeries(characterId: Int(character.id))
         APIManager.shared.send(request, completion: { (response) in
@@ -144,15 +114,12 @@ class DataManager {
             switch response {
             case .success(let dataContainer):
                 //Verify if any Character is saved
-                delegateVerified.didLoad(series: dataContainer.results)
+                completion(.success(dataContainer.results))
                 
             case .failure(let error):
                 //
-                delegateVerified.didFail(error: error)
+                completion(.failure(error))
             }
         })
     }
-    
-    // MARK: Series
-    
 }
