@@ -13,9 +13,6 @@ public class CoreDataManager<T:NSManagedObject>:NSObject {
     
     // MARK: - Properties
     // MARK: Private
-    private var modelName = "XPInvestimento"
-    
-    
     // MARK: - Init
     override init(){
         super.init()

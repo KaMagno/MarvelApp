@@ -51,9 +51,22 @@ final class DataManager {
         })
     }
     
-    static func getFavoriteCharacters() throws -> [Character] {
+    static func getFavoriteCharacters(name: String? = nil, nameStartsWith: String? = nil) throws -> [Character] {
         let coreDataManager = CoreDataManager<Character>()
-        let characters = try coreDataManager.get(filter: nil)
+        var characters = [Character]()
+        
+        if let nameVerified = name {
+            let predicate = NSPredicate(format: "name = %@", nameVerified)
+            characters = try coreDataManager.get(filter: predicate)
+            //Filter containing the Name
+        } else if let nameStartsWithVerified = nameStartsWith {
+            let predicate = NSPredicate(format: "name contains %@", nameStartsWithVerified)
+            characters = try coreDataManager.get(filter: predicate)
+            //No Filter
+        } else {
+            characters = try coreDataManager.get()
+        }
+        
         return characters
     }
     

@@ -9,19 +9,28 @@
 import UIKit
 
 protocol CharactersFavoritedInteractorDelegate:class {
-    func isLoading(_ loading:Bool)
-    func didLoad(characters:[Character])
+    func didLoad()
+    func didDelete(at indexPath:IndexPath)
     func didFail(error: Error)
 }
 
 
 class CharactersFavoritedInteractor: NSObject {
-
+    
     // MARK: - Properties
     // MARK: Private
-    private var coreDataManager = CoreDataManager<Character>()
+    private var fetchedCharacters  = [Character]()
+    private var searchedCharacters  = [Character]()
+    private var isSearching = false
     // MARK: Public
-    private(set) var characters = [Character]()
+    var characters:[Character] {
+        if self.isSearching {
+            return self.searchedCharacters
+        }else{
+            return self.fetchedCharacters
+        }
+    }
+    
     weak var delegate:CharactersFavoritedInteractorDelegate?
     
     // MARK: - Init
@@ -31,9 +40,23 @@ class CharactersFavoritedInteractor: NSObject {
     
     // MARK: - Functions
     // MARK: Private
+    private func loadCharacters(name: String? = nil, nameStartsWith: String? = nil) throws {
+    
+        let resultCharacters = try DataManager.getFavoriteCharacters(name: name, nameStartsWith: nameStartsWith)
+        
+        self.isSearching = name != nil || nameStartsWith != nil
+        
+        if self.isSearching {
+            self.searchedCharacters =  resultCharacters
+        }else{
+            self.fetchedCharacters = resultCharacters
+        }
+    }
+
+    
     // MARK: Public
-    func cleanCharacters() {
-        self.characters = []
+    func cleanSearch() {
+        self.searchedCharacters = []
     }
     
     
@@ -44,22 +67,20 @@ class CharactersFavoritedInteractor: NSObject {
     ///   - nameStartsWith: <b>optional</b> Filter the Favorite Character by all characters wich the name starts with
     /// - Throws: CoreData errors
     func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil) throws {
-        //Filter by Name
-        if let nameVerified = name {
-            let predicate = NSPredicate(format: "name = %@", nameVerified)
-            self.characters = try self.coreDataManager.get(filter: predicate)
-        //Filter containing the Name
-        } else if let nameStartsWithVerified = nameStartsWith {
-            let predicate = NSPredicate(format: "name contains %@", nameStartsWithVerified)
-            self.characters = try self.coreDataManager.get(filter: predicate)
-        //No Filter
-        } else {
-            self.characters = try self.coreDataManager.get()
-        }
+        try self.loadCharacters(name: name, nameStartsWith: nameStartsWith)
+        self.delegate?.didLoad()
     }
     
-    func remove(characterFavorited:Character) {
-        self.coreDataManager.delete(object: characterFavorited)
+    func removeCharacter(at indexPath:IndexPath) {
+        let character = self.characters[indexPath.row]
+        DataManager.set(character: character, isFavorite: false)
+        
+        do {
+            try self.loadCharacters()
+            self.delegate?.didDelete(at: indexPath)
+        } catch  {
+            self.delegate?.didFail(error: error)
+        }
     }
 }
 
