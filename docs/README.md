@@ -3,11 +3,13 @@
 
 I created this App as a recruting development challenge and after many others challenges I decided to use this project as a demonstration of my development skills.
 
-Here are some technologies and patterns I am using in this project:
+### Technologies and patterns
 - Architecture
   - VIPER
+
 - Framework management
   - Carthage
+
 - Other stuff
   - Async requests
   - Async Image loading
@@ -15,7 +17,12 @@ Here are some technologies and patterns I am using in this project:
   - Pagination on CollectionView
   - TabBar
   - ... 
+  
+  ### To FIX 
+  - [ ] Unfavorite a Character in Characters Screen
+  - [ ] Unfavorite a Character in Characters Screen
  
+ ### More
 I created a [Trello](https://trello.com/b/pTAKHJqE/marvel-app) to try to organize myself with everything I would like to develop for this App.
 
 I would be happy to have suggestions that you can do in the issues tab.
