@@ -61,7 +61,7 @@ extension CharacterDetailPresenter:UITableViewDataSource {
                 Logger.logError(in: self, message: "Could not cast cell to DescriptionTableViewCell")
                 return UITableViewCell()
             }
-            let router = DescriptionRouter(cell: cell, with: self.interactor.character.thumbnail!, and: self.interactor.character.characterDescription ?? "")
+            let router = DescriptionRouter(cell: cell, with: self.interactor.character.thumbnail, and: self.interactor.character.characterDescription ?? "")
             return router.presenter.view
             
         case 1:

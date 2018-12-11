@@ -109,29 +109,7 @@ extension CharactersFavoritedPresenter: CharactersFavoritedCollectionViewCellDel
             return
         }
         
-        let character = self.interactor.characters[indexPath.row]
-        
-        self.interactor.remove(characterFavorited: character)
-        DispatchQueue.main.async {
-            self.view.collectionView?.reloadData()
-        }
-    }
-}
-
-extension CharactersFavoritedPresenter: CharactersFavoritedInteractorDelegate {
-    func isLoading(_ loading:Bool) {
-        
-    }
-    
-    func didLoad(characters: [Character]) {
-        DispatchQueue.main.async {
-            self.view.collectionView?.reloadData()
-            self.view.collectionView?.refreshControl?.endRefreshing()
-        }
-    }
-    
-    func didFail(error: Error) {
-        self.router.showAlertLoadindDataError()
+        self.interactor.removeCharacter(at: indexPath)
     }
 }
 
@@ -139,7 +117,7 @@ extension CharactersFavoritedPresenter: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != nil {
             searchBar.text = ""
-            self.interactor.cleanCharacters()
+            self.interactor.cleanSearch()
             self.reload()
         }
     }
@@ -153,5 +131,21 @@ extension CharactersFavoritedPresenter: UISearchBarDelegate {
                 self.router.showAlertLoadindDataError()
             }
         }
+    }
+}
+
+extension CharactersFavoritedPresenter: CharactersFavoritedInteractorDelegate {
+    func didLoad() {
+        self.view.collectionView?.reloadData()
+    }
+    
+    func didDelete(at indexPath: IndexPath) {
+//        self.view.collectionView?.beginInteractiveMovementForItem(at: indexPath)
+        self.view.collectionView?.deleteItems(at: [indexPath])
+//        self.view.collectionView?.endInteractiveMovement()
+    }
+    
+    func didFail(error: Error) {
+        self.router.showAlert(message: "Thanos is causing some problems in the system. Please try again")
     }
 }

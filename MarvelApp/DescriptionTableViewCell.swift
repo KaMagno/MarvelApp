@@ -39,16 +39,20 @@ class DescriptionTableViewCell: UITableViewCell {
         self.outletDescription.text = description
     }
     
-    func set(image:Thumbnail) {
-        let url = URL(string: image.url!)!
-        ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
-            if let fetchedImageVerified = fetchedImage {
-                DispatchQueue.main.async {
-                    self.outletImage.image = fetchedImageVerified
+    func set(image:Thumbnail?) {
+        if let image = image {
+            let url = URL(string: image.url!)!
+            ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
+                if let fetchedImageVerified = fetchedImage {
+                    DispatchQueue.main.async {
+                        self.outletImage.image = fetchedImageVerified
+                    }
+                }else if let errorVerified = error {
+                    Logger.logError(in: self, message: errorVerified.localizedDescription)
                 }
-            }else if let errorVerified = error {
-                Logger.logError(in: self, message: errorVerified.localizedDescription)
             }
+        }else{
+            self.outletImage.image = #imageLiteral(resourceName: "Nil")
         }
     }
 }

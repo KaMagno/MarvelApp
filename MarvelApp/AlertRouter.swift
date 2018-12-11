@@ -40,7 +40,7 @@ class AlertRouter: NSObject {
     }
     
     // MARK: - Static Functions
-    static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController?) {
+    static func showAlert(with message:String, buttonTitle:String = "Okay", sender:UIViewController? = nil) {
         let router = AlertRouter(message: message, buttonTitle: buttonTitle)
         
         DispatchQueue.main.async {
