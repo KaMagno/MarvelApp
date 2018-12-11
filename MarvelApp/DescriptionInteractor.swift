@@ -10,10 +10,10 @@ import UIKit
 
 class DescriptionInteractor: NSObject {
 
-    var image:Thumbnail
+    var image:Thumbnail?
     var text:String
     
-    init(image:Thumbnail, text:String) {
+    init(image:Thumbnail?, text:String) {
         self.image = image
         self.text = text
     }

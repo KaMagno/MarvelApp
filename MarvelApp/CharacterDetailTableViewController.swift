@@ -11,7 +11,7 @@ import UIKit
 class CharacterDetailTableViewController: UITableViewController {
 
     @IBOutlet var outletBackgroundView: UIView!
-    @IBOutlet weak var outletFavoriteButton:UIBarButtonItem!
+    @IBOutlet weak var outletFavoriteButton:UIBarButtonItem?
     
     // MARK: - Properties
     // MARK: Private
@@ -40,9 +40,9 @@ class CharacterDetailTableViewController: UITableViewController {
     
     private func setFavoriteButton(selected:Bool) {
         if selected {
-            self.outletFavoriteButton.image = #imageLiteral(resourceName: "FavortieBarIcon_Filled")
+            self.outletFavoriteButton?.image = #imageLiteral(resourceName: "FavortieBarIcon_Filled")
         }else{
-            self.outletFavoriteButton.image = #imageLiteral(resourceName: "FavortieBarIcon")
+            self.outletFavoriteButton?.image = #imageLiteral(resourceName: "FavortieBarIcon")
         }
     }
     
@@ -56,6 +56,6 @@ class CharacterDetailTableViewController: UITableViewController {
     }
     
     @IBAction func didTapFavorite(_ sender:UIBarButtonItem) {
-        self.presenter.didTapFavorite(value: self.isFavorited)
+        self.presenter.didTapFavorite(value: !self.isFavorited)
     }
 }
