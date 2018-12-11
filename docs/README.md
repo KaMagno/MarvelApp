@@ -19,8 +19,9 @@ I created this App as a recruting development challenge and after many others ch
   - ... 
   
   ### To FIX 
-  - [ ] Unfavorite a Character in Characters Screen
-  - [ ] Unfavorite a Character in Characters Screen
+  - [ ] Unfavorite a Character in Characters Screen.
+  - [ ] Favorite and Unfavorite a Character in Characters Detail Screen.
+  - [ ] Improve cell data loading in Characters Screen.
  
  ### More
 I created a [Trello](https://trello.com/b/pTAKHJqE/marvel-app) to try to organize myself with everything I would like to develop for this App.
