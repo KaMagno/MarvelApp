@@ -1,6 +1,6 @@
 //
 //  CharactersFavoritedInteractor.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 26/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -19,11 +19,11 @@ class CharactersFavoritedInteractor: NSObject {
     
     // MARK: - Properties
     // MARK: Private
-    private var fetchedCharacters  = [Character]()
-    private var searchedCharacters  = [Character]()
+    private var fetchedCharacters  = [FavoriteCharacter]()
+    private var searchedCharacters  = [FavoriteCharacter]()
     private var isSearching = false
     // MARK: Public
-    var characters:[Character] {
+    var characters:[FavoriteCharacter] {
         if self.isSearching {
             return self.searchedCharacters
         }else{
@@ -63,8 +63,8 @@ class CharactersFavoritedInteractor: NSObject {
     /// Fetch the Favortie Characters saved on App
     ///
     /// - Parameters:
-    ///   - name: <b>optional</b> Filter the Favorite Character by the name
-    ///   - nameStartsWith: <b>optional</b> Filter the Favorite Character by all characters wich the name starts with
+    ///   - name: <b>optional</b> Filter the Favorite FavoriteCharacter by the name
+    ///   - nameStartsWith: <b>optional</b> Filter the Favorite FavoriteCharacter by all characters wich the name starts with
     /// - Throws: CoreData errors
     func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil) throws {
         try self.loadCharacters(name: name, nameStartsWith: nameStartsWith)
@@ -73,9 +73,9 @@ class CharactersFavoritedInteractor: NSObject {
     
     func removeCharacter(at indexPath:IndexPath) {
         let character = self.characters[indexPath.row]
-        DataManager.set(character: character, isFavorite: false)
         
         do {
+            try DataManager.unfavorite(character: character)
             try self.loadCharacters()
             self.delegate?.didDelete(at: indexPath)
         } catch  {

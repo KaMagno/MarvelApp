@@ -1,6 +1,6 @@
 //
 //  HorizontalListPresenter.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 26/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -51,8 +51,8 @@ extension HorizontalListPresenter:UICollectionViewDataSource {
         
         cell.outletImage.image = #imageLiteral(resourceName: "Nil")
         
-        if let image = object.getImage() {
-            let url = URL(string: image.url!)!
+        if let image = object.getImage(),
+            let url = image.url {
             ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
                 if let fetchedImageVerified = fetchedImage {
                     DispatchQueue.main.async {

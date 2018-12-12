@@ -1,6 +1,6 @@
 //
 //  CoreDataSingleton.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 28/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.

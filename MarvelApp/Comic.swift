@@ -1,6 +1,6 @@
 //
 //  Comic.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 27/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -20,7 +20,7 @@ struct Comic:Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Keys.self)
-        self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        self.name = try values.decode(String.self, forKey: .name)
         self.thumbnail = try values.decodeIfPresent(Thumbnail.self, forKey: .thumbnail)
     }
 }

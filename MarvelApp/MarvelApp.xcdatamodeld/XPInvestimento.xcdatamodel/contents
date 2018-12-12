@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Character" representedClassName="Character" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteCharacter" representedClassName="FavoriteCharacter" syncable="YES">
         <attribute name="characterDescription" optional="YES" attributeType="String" defaultValueString="No description" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" defaultValueString="No Name" syncable="YES"/>
-        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Thumbnail" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FavoriteThumbnail" syncable="YES"/>
     </entity>
-    <entity name="Thumbnail" representedClassName="Thumbnail" syncable="YES">
+    <entity name="FavoriteThumbnail" representedClassName="FavoriteThumbnail" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Thumbnail" positionX="-63" positionY="18" width="128" height="75"/>
+        <element name="FavoriteCharacter" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="FavoriteThumbnail" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>
