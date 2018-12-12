@@ -36,6 +36,7 @@ class CharacterDetailInteractor {
         DataManager.getComics(character: self.character) { (result) in
             switch result {
             case .success(let comicsResult):
+                self.comics = comicsResult
                 self.delegate?.didLoad(comics: comicsResult)
             case .failure(let error):
                 self.delegate?.didFail(error: error)
@@ -47,6 +48,7 @@ class CharacterDetailInteractor {
         DataManager.getSeries(character: self.character) { (result) in
             switch result {
             case .success(let seriesResult):
+                self.series = seriesResult
                 self.delegate?.didLoad(series: seriesResult)
             case .failure(let error):
                 self.delegate?.didFail(error: error)
