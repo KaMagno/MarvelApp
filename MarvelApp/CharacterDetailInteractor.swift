@@ -1,6 +1,6 @@
 //
 //  CharacterDetailInteractor.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -55,7 +55,11 @@ class CharacterDetailInteractor {
     }
     
     func setFavorite(value:Bool) {
-        DataManager.set(character: self.character, isFavorite: value)
+        do {
+            try DataManager.favorite(character: self.character)
+        } catch {
+            self.delegate?.didFail(error: error)
+        }
     }
     
     func isFavorite()  -> Bool {

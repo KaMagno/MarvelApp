@@ -26,7 +26,11 @@ public class CoreDataManager<T:NSManagedObject>:NSObject {
     // MARK: Public
     func get(filter:NSPredicate? = nil) throws -> [T] {
         let entityName = String(describing: T.self)
-        let fetchRequest = NSFetchRequest   <T>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+        
+        if let filter = filter {
+            fetchRequest.predicate = filter
+        }
         
         return try CoreDataSingleton.shared.persistentContainer.viewContext.fetch(fetchRequest)
     }
@@ -51,9 +55,9 @@ public class CoreDataManager<T:NSManagedObject>:NSObject {
     ///   - object: object which will be insert in the PersistentStore.
     ///   - predicate: the predicate which must be not fulfill to insert the object. Default value is `nil`
     func insert(object:T) {
-        let context = CoreDataSingleton.shared.persistentContainer.viewContext
-        
-        context.insert(object)
+//        let context = CoreDataSingleton.shared.persistentContainer.viewContext
+//
+//        context.insert(object)
     }
     
     func delete(object:T) {

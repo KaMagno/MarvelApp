@@ -1,6 +1,6 @@
 //
 //  CharactersInteractor.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -87,8 +87,27 @@ class CharactersInteractor: NSObject {
         }
     }
     
+    
+    func update(image:UIImage, at indexPath:IndexPath) {
+        if self.isSearching {
+            self.searchedCharacters[indexPath.row].thumbnail?.image = image
+        }else{
+            self.fetchedCharacters[indexPath.row].thumbnail?.image = image
+        }
+    }
+    
+    
     func setFavorite(value:Bool,for character:Character) {
-        DataManager.set(character: character, isFavorite: value)
+        do{
+            if value {
+                try DataManager.favorite(character: character)
+            }else{
+                try DataManager.unfavorite(character: character)
+            }
+        }catch{
+            self.delegate?.didFail(error: error)
+        }
+        
     }
     
     func isFavorite(chracter:Character)  -> Bool {
