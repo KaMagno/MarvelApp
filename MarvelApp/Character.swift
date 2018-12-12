@@ -10,7 +10,7 @@ import UIKit
 
 struct Character: Decodable {
 
-    let characterDescription: String?
+    let description: String?
     let id: Int
     let name: String?
     var thumbnail: Thumbnail?
@@ -18,7 +18,7 @@ struct Character: Decodable {
     init(favoriteCharacter:FavoriteCharacter) {
         self.id = Int(favoriteCharacter.id)
         self.name = favoriteCharacter.name
-        self.characterDescription = favoriteCharacter.characterDescription
+        self.description = favoriteCharacter.characterDescription
         
         if let thumbnail = favoriteCharacter.thumbnail {
             self.thumbnail = Thumbnail(favoriteThumbnail: thumbnail)

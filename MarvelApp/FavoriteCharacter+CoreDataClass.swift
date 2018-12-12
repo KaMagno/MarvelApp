@@ -33,7 +33,7 @@ public class FavoriteCharacter: NSManagedObject {
         
         self.id = Int32(character.id)
         self.name = character.name
-        self.characterDescription = character.characterDescription
+        self.characterDescription = character.description
         
         context.insert(self)
         self.thumbnail = favoriteThumbnail

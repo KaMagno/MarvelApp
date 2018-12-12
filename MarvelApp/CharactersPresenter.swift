@@ -168,7 +168,7 @@ extension CharactersPresenter: UISearchBarDelegate {
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
-            self.interactor.fetchCharacters(nameStartsWith: text)
+            self.interactor.change(status: .searching(name: text, nameStartsWith: nil))
         }
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
