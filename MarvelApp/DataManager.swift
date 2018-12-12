@@ -1,6 +1,6 @@
 //
 //  DataManager.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -32,17 +32,8 @@ final class DataManager {
             //Response from API
             switch response {
             case .success(let dataContainer):
-                //Verify if any Character is saved
-                let characters = dataContainer.results.map({ (characterElement) -> Character in
-                    let coreDataManager = CoreDataManager<Character>()
-
-                    let predicate = NSPredicate(format: "id = %i", characterElement.id)
-                    characterElement.isFavorited = coreDataManager.exist(predicate: predicate)
-
-                    return characterElement
-                })
-                //
-                completion(.success(characters))
+                //Verify if any FavoriteCharacter is saved
+                completion(.success(dataContainer.results))
                 
             case .failure(let error):
                 //
@@ -51,9 +42,9 @@ final class DataManager {
         })
     }
     
-    static func getFavoriteCharacters(name: String? = nil, nameStartsWith: String? = nil) throws -> [Character] {
-        let coreDataManager = CoreDataManager<Character>()
-        var characters = [Character]()
+    static func getFavoriteCharacters(name: String? = nil, nameStartsWith: String? = nil) throws -> [FavoriteCharacter] {
+        let coreDataManager = CoreDataManager<FavoriteCharacter>()
+        var characters = [FavoriteCharacter]()
         
         if let nameVerified = name {
             let predicate = NSPredicate(format: "name = %@", nameVerified)
@@ -71,23 +62,43 @@ final class DataManager {
     }
     
     
-    static func set(character:Character, isFavorite:Bool) {
+    static func favorite(character:Character) throws {
         //
-        let characterCoreDataManager = CoreDataManager<Character>()
-        if isFavorite {
-            if let thumbnail = character.thumbnail{
-                let thumbnailCoreDataManager = CoreDataManager<Thumbnail>()
-                thumbnailCoreDataManager.insert(object: thumbnail)
-            }
-            characterCoreDataManager.insert(object: character)
-        }else{
-            characterCoreDataManager.delete(object: character)
+        let characterCoreDataManager = CoreDataManager<FavoriteCharacter>()
+        if let thumbnail = character.thumbnail{
+            let thumbnailCoreDataManager = CoreDataManager<FavoriteThumbnail>()
+            let favoriteThumbnail = try FavoriteThumbnail(thumbnail: thumbnail, in: CoreDataSingleton.shared.persistentContainer.viewContext)
+            thumbnailCoreDataManager.insert(object: favoriteThumbnail)
         }
+        
+        let favoritedCharacter = try FavoriteCharacter(character: character, in: CoreDataSingleton.shared.persistentContainer.viewContext)
+        characterCoreDataManager.insert(object: favoritedCharacter)
+        
         CoreDataSingleton.shared.saveContext()
     }
     
+    static func unfavorite(character:Character) throws {
+        //
+        let characterCoreDataManager = CoreDataManager<FavoriteCharacter>()
+        let predicate = NSPredicate(format: "id = %i", Int32(character.id))
+        let favoriteCharacters = try characterCoreDataManager.get(filter: predicate)
+        if let favoriteCharacter = favoriteCharacters.first {
+            characterCoreDataManager.delete(object: favoriteCharacter)
+        }else{
+            throw NSError(domain: "CoreData", code: 404, userInfo: ["localizedDescription":"Could not find the character"])
+        }
+        
+        CoreDataSingleton.shared.saveContext()
+    }
+    
+    static func unfavorite(character:FavoriteCharacter) throws {
+        //
+        let character = Character.init(favoriteCharacter: character)
+        try DataManager.unfavorite(character: character)
+    }
+    
     static func isFavorited(character:Character) -> Bool {
-        let coreDataManager = CoreDataManager<Character>()
+        let coreDataManager = CoreDataManager<FavoriteCharacter>()
         let predicate = NSPredicate(format: "id = %i", character.id)
         return coreDataManager.exist(predicate: predicate)
     }
@@ -102,7 +113,7 @@ final class DataManager {
             //Response from API
             switch response {
             case .success(let dataContainer):
-                //Verify if any Character is saved
+                //Verify if any FavoriteCharacter is saved
                 completion(.success(dataContainer.results))
                 
             case .failure(let error):
@@ -121,7 +132,7 @@ final class DataManager {
             //Response from API
             switch response {
             case .success(let dataContainer):
-                //Verify if any Character is saved
+                //Verify if any FavoriteCharacter is saved
                 completion(.success(dataContainer.results))
                 
             case .failure(let error):

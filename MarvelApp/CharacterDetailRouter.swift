@@ -1,6 +1,6 @@
 //
 //  CharacterDetailRouter.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -12,7 +12,8 @@ class CharacterDetailRouter {
 
     private(set) var presenter:CharacterDetailPresenter!
     
-    init(character: Character) {
+    // MARK: - Inits
+    init(character:Character) {
         
         //
         let storyboard = UIStoryboard(name: "CharacterDetailTableViewController", bundle: Bundle.main)
@@ -28,9 +29,14 @@ class CharacterDetailRouter {
         let interactor = CharacterDetailInteractor(character: character)
         //Instancing Presenter
         self.presenter = CharacterDetailPresenter(router: self, interactor: interactor, view: view)
-        
     }
     
+    convenience init(character:FavoriteCharacter) {
+        let character = Character(favoriteCharacter: character)
+        self.init(character: character)
+    }
+    
+    // MARK: - Functions
     func back(animated:Bool) {
         if let navigationController = self.presenter.view.navigationController {
             navigationController.popViewController(animated: true)
@@ -48,6 +54,7 @@ class CharacterDetailRouter {
     }
     
     
+    // MARK: - Static Functions
     static func show(character:Character, from sender:UIViewController) {
         let router = CharacterDetailRouter(character: character)
         if let navigationController = sender.navigationController {

@@ -1,6 +1,6 @@
 //
 //  DescriptionTableViewCell.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 26/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -40,8 +40,8 @@ class DescriptionTableViewCell: UITableViewCell {
     }
     
     func set(image:Thumbnail?) {
-        if let image = image {
-            let url = URL(string: image.url!)!
+        if let image = image,
+            let url = image.url {
             ImageManager.shared.fetchImage(from: url) { (fetchedImage, error) in
                 if let fetchedImageVerified = fetchedImage {
                     DispatchQueue.main.async {

@@ -1,6 +1,6 @@
 //
 //  CharactersInteractor.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -16,34 +16,51 @@ protocol CharactersInteractorDelegate:class {
 
 class CharactersInteractor: NSObject {
 
+    enum Status {
+        case normal
+        case searching(name: String?, nameStartsWith: String?)
+    }
+    
     // MARK: - Properties
     // MARK: Private
     private var fetchedCharacters = [Character]()
     private var searchedCharacters = [Character]()
+    private var popularMoviesPage:Int = 0
+    private var searchMoviesPage:Int = 0
+    
     
     // MARK: Public
     private(set) var offsetLastModified:Int = 0
-    private(set) var offset:Int = 0
-    private(set) var characters:[Character] {
-        get {
-            if self.isSearching {
-                return self.searchedCharacters
-            }else{
-                return self.fetchedCharacters
-            }
+    var offset:Int {
+        switch self.status {
+        case .normal:
+            return self.popularMoviesPage
+        case .searching:
+            return self.searchMoviesPage
         }
-        
-        set{
-            if self.isSearching {
-                return self.searchedCharacters = newValue
-            }else{
-                return self.fetchedCharacters = newValue
-            }
-        }
-        
     }
     
-    private(set) var isSearching = false
+    private(set) var characters:[Character] {
+        get {
+            switch self.status {
+            case .normal:
+                return self.fetchedCharacters
+            case .searching(name: _, nameStartsWith: _):
+                return self.searchedCharacters
+            }
+        }
+        set{
+            switch self.status {
+            case .normal:
+                self.fetchedCharacters = newValue
+            case .searching(name: _, nameStartsWith: _):
+                self.searchedCharacters = newValue
+            }
+        }
+    }
+    
+    private(set) var status:Status = .normal
+    
     weak var delegate:CharactersInteractorDelegate?
     
     // MARK: - Init
@@ -54,41 +71,83 @@ class CharactersInteractor: NSObject {
     // MARK: - Functions
     // MARK: Private
     // MARK: Public
+    func change(status:Status) {
+        self.status = status
+    }
+    
     func cancelSearchCharatcers() {
-        self.isSearching = false
+        self.status = .normal
         self.searchedCharacters = [Character]()
-        self.offset = 0
+        self.searchMoviesPage = 0
         self.delegate?.didLoad()
     }
     
-    func fetchCharacters(name: String? = nil, nameStartsWith: String? = nil, limit: Int? = nil, offset: Int? = nil) {
-        
-        if nameStartsWith != nil {
-            self.isSearching = true
-            self.searchedCharacters = [Character]()
-        }
-        
-        self.offsetLastModified = self.offset
-        if let offsetVerified = offset {
-            if offsetVerified >= self.offset {
-                self.offset = self.offset+Constants.MarvelAPI.offset
-            } else {
-                self.offset = self.offset <= 0 ? 0: self.offset-Constants.MarvelAPI.offset
+    func fetchCharacters(limit: Int? = nil, offset: Int? = nil) {
+        switch self.status {
+        case .normal:
+            self.offsetLastModified = self.offset
+            if let offset = offset {
+                if offset >= self.offset {
+                    self.popularMoviesPage = offset
+                } else {
+                    self.popularMoviesPage = self.offset <= 1 ? 1: self.popularMoviesPage - 1
+                }
             }
-        }
-        DataManager.getCharacters(name: name, nameStartsWith: nameStartsWith, limit: limit, offset: self.offset) { (result) in
-            switch result {
-            case .success(let charactersResult):
-                self.characters.append(contentsOf: charactersResult)
-                self.delegate?.didLoad()
-            case .failure(let error):
-                self.delegate?.didFail(error: error)
-        }
+            
+            DataManager.getCharacters(limit: limit, offset: self.offset) { (result) in
+                switch result {
+                case .success(let charactersResult):
+                    self.characters.append(contentsOf: charactersResult)
+                    self.delegate?.didLoad()
+                case .failure(let error):
+                    self.delegate?.didFail(error: error)
+                }
+            }
+            
+        case .searching(name: let characterName, nameStartsWith: let characterNameStart):
+            self.offsetLastModified = self.offset
+            if let offset = offset {
+                if offset >= self.offset {
+                    self.searchMoviesPage = offset
+                } else {
+                    self.searchMoviesPage = self.offset <= 1 ? 1: self.searchMoviesPage - 1
+                }
+            }
+            
+            DataManager.getCharacters(name: characterName, nameStartsWith: characterNameStart, limit: limit, offset: self.offset) { (result) in
+                switch result {
+                case .success(let charactersResult):
+                    self.characters.append(contentsOf: charactersResult)
+                    self.delegate?.didLoad()
+                case .failure(let error):
+                    self.delegate?.didFail(error: error)
+                }
+            }
         }
     }
     
+    
+    func update(image:UIImage, at indexPath:IndexPath) {
+        switch self.status {
+        case .normal:
+            self.fetchedCharacters[indexPath.row].thumbnail?.image = image
+        case .searching(name: _, nameStartsWith: _):
+            self.searchedCharacters[indexPath.row].thumbnail?.image = image
+        }
+    }
+    
+    
     func setFavorite(value:Bool,for character:Character) {
-        DataManager.set(character: character, isFavorite: value)
+        do{
+            if value {
+                try DataManager.favorite(character: character)
+            }else{
+                try DataManager.unfavorite(character: character)
+            }
+        }catch{
+            self.delegate?.didFail(error: error)
+        }
+        
     }
     
     func isFavorite(chracter:Character)  -> Bool {

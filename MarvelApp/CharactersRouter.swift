@@ -1,6 +1,6 @@
 //
 //  CharactersRouter.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -37,6 +37,11 @@ class CharactersRouter:NSObject {
     
     func showDetailt(of character:Character) {
         CharacterDetailRouter.show(character: character, from: self.presenter.view)
+    }
+    
+    func showDetailt(of character:FavoriteCharacter) {
+        let character = Character(favoriteCharacter: character)
+        self.showDetailt(of: character)
     }
     
     func showAlert(message:String) {

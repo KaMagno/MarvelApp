@@ -1,6 +1,6 @@
 //
 //  CharacterDetailPresenter.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -61,7 +61,7 @@ extension CharacterDetailPresenter:UITableViewDataSource {
                 Logger.logError(in: self, message: "Could not cast cell to DescriptionTableViewCell")
                 return UITableViewCell()
             }
-            let router = DescriptionRouter(cell: cell, with: self.interactor.character.thumbnail, and: self.interactor.character.characterDescription ?? "")
+            let router = DescriptionRouter(cell: cell, with: self.interactor.character.thumbnail, and: self.interactor.character.description ?? "")
             return router.presenter.view
             
         case 1:

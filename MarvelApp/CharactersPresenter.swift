@@ -1,6 +1,6 @@
 //
 //  CharactersPresenter.swift
-//  XPInvestimento
+//  MarvelApp
 //
 //  Created by Kaique Magno Dos Santos on 21/04/18.
 //  Copyright © 2018 Kaique Magno. All rights reserved.
@@ -60,7 +60,7 @@ extension CharactersPresenter: UICollectionViewDataSource {
         let character = self.interactor.characters[indexPath.row]
         cell.set(characterName: character.name ?? "No Name!")
         if let thumbnail = character.thumbnail,
-            let url = URL(string: thumbnail.url!) {
+            let url = thumbnail.url {
             cell.set(characterImageURL: url)
         }
         
@@ -125,7 +125,6 @@ extension CharactersPresenter: CharactersCollectionViewCellDelegate {
         }
         
         let character = self.interactor.characters[indexPath.row]
-        
         self.interactor.setFavorite(value: value, for: character)
         self.view.collectionView?.reloadItems(at: [indexPath])
     }
@@ -137,12 +136,7 @@ extension CharactersPresenter: CharactersCollectionViewCellDelegate {
                 return
             }
             
-            let character = self.interactor.characters[indexPath.row]
-            guard let data = UIImageJPEGRepresentation(image, 0.5) else {
-                Logger.logError(in: self, message: "Error to compress Thumbnail into data from Character.name\(character.name ?? "No Name") in indexPath.row: \(indexPath.row)")
-                return
-            }
-            character.thumbnail?.data = data as NSData
+            self.interactor.update(image: image, at: indexPath)
         }
     }
 }
@@ -174,7 +168,7 @@ extension CharactersPresenter: UISearchBarDelegate {
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
-            self.interactor.fetchCharacters(nameStartsWith: text)
+            self.interactor.change(status: .searching(name: text, nameStartsWith: nil))
         }
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
