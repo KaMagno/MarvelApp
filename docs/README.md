@@ -19,7 +19,7 @@ I created this App as a recruting development challenge and after many others ch
   - ... 
   
   ### To FIX 
-  - [ X ] Unfavorite a Character in Characters Screen.
+  - [X] Unfavorite a Character in Characters Screen.
   - [ ] Favorite and Unfavorite a Character in Characters Detail Screen.
   - [ ] Improve cell data loading in Characters Screen.
  
